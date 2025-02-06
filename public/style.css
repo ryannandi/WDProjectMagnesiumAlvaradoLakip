@@ -1,0 +1,197 @@
+/* Basic styles for the navigation bar */
+h1 {
+  color: white;
+  text-align: center;
+  padding-top: 10%;
+  background-size: 100% 150px;
+  background-repeat: repeat-x;
+}
+
+h2.desc {
+  color: white;
+  margin-bottom: -50px;
+  padding-left: 60%;
+}
+
+body {
+  background-color: black;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.navbar {
+  background-color: red;
+  overflow: hidden;
+  font-family: Copperplate;
+  background: linear-gradient(45deg, #ff0000, #ff4d4d, #ff8080);
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  font-family: "Lucida Console", "Courier New", monospace;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.about {
+  color: white;
+  font-family: FangSong;
+  margin: auto;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 600px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+video {
+  padding-left: 5%;
+}
+
+h4, h5 {
+  color: white;
+  padding-left: 5%;
+}
+
+b {
+  color: white;
+  text-align: center;
+}
+
+footer b {
+  text-align: center;
+  margin-top: -5000px; /* Adjust if necessary */
+}
+
+p.info {
+  color: white;
+  padding-left: 5%;
+  padding-right: 70%;
+  text-align: justify;
+}
+
+p.intro {
+  padding-left: 60%;
+  margin-top: -230px;
+}
+
+h2 {
+  color: white;
+  text-align: center;
+}
+
+a, p {
+  display: inline-block;
+}
+
+img.andi, img.miggy, img.insta1, img.insta2, img.fb1, img.fb2 {
+  display: inline-block;
+}
+
+img.andi {
+  margin-top: -300px;
+  margin-left: 250px;
+  margin-bottom: 100px;
+}
+
+img.miggy {
+  margin-top: -335px;
+  margin-left: 500px;
+  margin-bottom: 400px;
+}
+
+figcaption.andidesc, figcaption.miggydesc {
+  color: white;
+}
+
+figcaption.andidesc {
+  margin-top: -100px;
+  margin-left: 285px;
+  margin-bottom: 100px;
+}
+
+figcaption.miggydesc {
+  margin-top: -400px;
+  margin-left: 525px;
+  margin-bottom: 400px;
+}
+
+img.insta1 {
+  margin-top: -500px;
+  margin-left: 285px;
+  margin-bottom: 550px;
+}
+
+img.insta2 {
+  margin-top: -500px;
+  margin-left: 150px;
+  margin-bottom: 550px;
+}
+
+img.fb1 {
+  margin-top: -500px;
+  margin-left: -78px;
+  margin-bottom: 500px;
+}
+
+img.fb2 {
+  margin-top: -500px;
+  margin-left: -80px;
+  margin-bottom: 500px;
+}
+
+p.instauser2, p.fbuser2 {
+  color: white;
+  margin-left: 600px;
+  margin-bottom: 550px;
+}
+
+p.instauser2 {
+  margin-top: -585px;
+}
+
+p.fbuser2 {
+  margin-top: -520px;
+}
+
+td {
+  text-align: center;
+}
+
+p {
+  color: white;
+  text-align: justify;
+  margin-right: 500px;
+  display: inline;
+}
+
+#map {
+  height: 600px;
+  width: 100%;
+}
+
+.button-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}
+
+.button-container button {
+  margin: 5px;
+}

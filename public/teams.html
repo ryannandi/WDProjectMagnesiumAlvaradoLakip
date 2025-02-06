@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Teams and Drivers</title>
+    <link rel="stylesheet" href="styles.css">
+    
+  
+
+</head>
+<body>
+    <div class="navbar">
+        <a href="indexhaha.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="teams.html">Teams</a>
+        <a href="circuits.html">Tracks</a>
+        <a href="quiz2.html">Your Team</a> <!-- creates a link to the quiz page-->
+    </div>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 20px;
+      }
+      
+      .container {
+          max-width: 1200px;
+          margin: auto;
+          text-align: center;
+      }
+      
+      h1 {
+          margin-bottom: 20px;
+      }
+      
+      .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
+      }
+      /*make gradient*/
+      .mclaren {
+          background:linear-gradient(white,orange,black);
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          padding: 15px;
+          transition: transform 0.2s;
+      }
+    
+      .ferrari {
+        background:linear-gradient(white,red,black);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        transition: transform 0.2s;
+      }
+      .redbull {
+        background:linear-gradient(navy,red,yellow);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        transition: transform 0.2s;
+      }
+      .mercedes {
+        background:linear-gradient(black,grey,cyan);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        transition: transform 0.2s;
+      }
+      .astonmartin {
+        background:linear-gradient(black,green);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        transition: transform 0.2s;
+      }
+      .rb {
+        background:linear-gradient(white,blue,red);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        transition: transform 0.2s;
+      }
+      .haas {
+        background:linear-gradient(red,white,grey,black);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        transition: transform 0.2s;
+      }
+      .alpine {
+        background:linear-gradient(pink,blue,black);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        transition: transform 0.2s;
+      }
+      .williams {
+        background:linear-gradient(white,royalblue,black);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        transition: transform 0.2s;
+      }
+      .sauber {
+        background:linear-gradient(black,limegreen);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        transition: transform 0.2s;
+      }
+      .team img {
+          max-width: 100%;
+          border-radius: 8px;
+      }
+      
+      .team h2 {
+          font-size: 1.5em;
+          margin: 10px 0;
+      }
+      
+      .team p {
+          margin: 5px 0;
+      }
+      
+      .team:hover {
+          transform: scale(1.05);
+      }
+      .mclaren img {
+          width: 100px;
+          height: 100px;
+      }
+      .ferrari img {
+          width: 100px;
+          height: 100px;
+      }
+      .redbull img {
+          width: 100px;
+          height: 100px;
+      }
+      .mercedes img {
+          width: 100px;
+          height: 100px;
+      }
+      .astonmartin img {
+          width: 100px;
+          height: 100px;
+      }
+      .rb img {
+          width: 100px;
+          height: 100px;
+      }
+      .haas img {
+          width: 100px;
+          height: 100px;
+      }
+      .alpine img {
+          width: 100px;
+          height: 100px;
+      }
+      .williams img {
+          width: 100px;
+          height: 100px;
+      }
+      .sauber img {
+          width: 100px;
+          height: 100px;
+      }
+      body {
+        background-color: black;
+      }
+      .navbar {
+            background: linear-gradient(to right, #ff0000, #1d1c1c); /* Gradient background */
+            overflow: hidden; /* Clear floats */
+            font-family: copperplate;
+        }
+        .navbar a {
+            float: left; /* Align links to the left */
+            display: block;
+            color: white;
+            font-family: "Lucida Console", "Courier New", monospace;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+        }
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+            color: yellow; /* Change text color on hover */
+        }
+      </style>
+    <div class="container">
+        <h1>F1 Teams and Drivers</h1>
+        <div class="grid">
+            <div class="mclaren">
+                <img src="https://images2.minutemediacdn.com/image/upload/c_crop,w_3613,h_2032,x_361,y_492/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/images/ImagnImages/mmsport/f1briefings/01jh2rw3b2cjm7py0vr6.jpg" alt="Team 1">
+                <h2>McLaren</h2>
+                <p>Lando Norris [4]</p>
+                <p>Oscar Piastri [81]</p>
+            </div>
+            <div class="ferrari">
+                <img src="https://www.motorsportweek.com/wp-content/uploads/2024/11/XPB_1315311_HiRes-scaled.webp" alt="Team 2">
+                <h2>Ferrari</h2>
+                <p>Lewis Hamilton [44]</p>
+                <p>Charles Leclerc [16]</p>
+            </div>
+            <div class="redbull">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlfB8hcbLn36BBe_JHXvPCMbhAJiOWgffLkg&s" alt="Team 3">
+                <h2>Red Bull</h2>
+                <p>Max Verstappen [33]</p>
+                <p>Liam Lawson [21]</p>
+            </div>
+            <div class="mercedes">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf5qx8kc_Vyv7rf03uSpZjG3gchDQSrWly4A&s" alt="Team 4">
+                <h2>Mercedes</h2>
+                <p>George Russell [63]</p>
+                <p>Kimi Antonelli [12]</p>
+            </div>
+            <div class="astonmartin">
+                <img src="https://www.formula1.com/content/dam/fom-website/manual/DriverAndTeamImages/2024/2053204844_16by9Centre.jpg" alt="Team 5">
+                <h2>Aston Martin</h2>
+                <p>Fernando Alonso [14]</p>
+                <p>Lance Stroll [18]</p>
+            </div>
+            <div class="rb">
+                <img src="https://cdn-2.motorsport.com/images/amp/0JBg89N0/s6/yuki-tsunoda-rb-f1-team-vcarb-.jpg" alt="Team 6">
+                <h2>Racing Bulls</h2>
+                <p>Yuki Tsunoda [22]</p>
+                <p>Isaac Hadgar [6]</p>
+            </div>
+            <div class="haas">
+                <img src="https://cdn-9.motorsport.com/images/amp/6gp5z7m0/s1000/kevin-magnussen-haas-vf-24.jpg" alt="Team 7">
+                <h2>Haas</h2>
+                <p>Esteban Ocon [31]</p>
+                <p>Ollie Bearman [87]</p>
+            </div>
+            <div class="alpine">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNEEI3BdHpSHldjwu3IjPCddPVASyn1XiE9w&s" alt="Team 8">
+                <h2>Alpine</h2>
+                <p>Pierre Gasly [10]</p>
+                <p>Jack Doohan [31]
+            </div>
+            <div class="williams">
+              <img src="https://cdn-7.motorsport.com/images/amp/6n9OanAY/s6/alex-albon-williams-fw46.jpg" alt="Team 9">
+              <h2>Williams</h2>
+              <p>Carlos Sainz [55]</p>
+              <p>Alex Albon [23]</p>
+          </div>
+          <div class="sauber">
+            <img src="https://cdn-7.motorsport.com/images/amp/0L1wN8W2/s1000/zhou-guanyu-stake-f1-team-kick-2.jpg" alt="Team 10">
+            <h2>Sauber</h2>
+            <p>Nico Hulkenburg [27]</p>
+            <p>Gabriel Bortoleto [5]</p>
+          </div>
+        </div>
+    </div>
+</body>
+</html>

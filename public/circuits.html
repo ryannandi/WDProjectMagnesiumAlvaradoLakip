@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Race Locations</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+        .info-section {
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+        body {
+            background-color: black;
+        }
+        .navbar {
+      background-color: red; /* Dark background */
+      overflow: hidden; /* Clear floats */
+      font-family: copperplate;
+    }
+
+    .navbar a {
+      float: left; /* Align links to the left */
+      display: block;
+      color: white;
+      font-family: "Lucida Console", "Courier New", monospace;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+   
+    img {
+        display: inline;
+        height: 500px;
+        width: 500pxl
+    }
+    </style>
+    <div class="navbar">
+        <a href="indexhaha.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="teams.html">Teams</a>
+        <a href="circuits.html">Tracks</a>
+        <a href="quiz2.html">Your Team</a> <!-- creates a link to the quiz page-->
+    </div>
+
+</head>
+<body>
+
+<div id="map"></div>
+
+<div class="info-section" id="monaco">
+    <h2>Monaco Grand Prix</h2>
+    <p>First Grand Prix:  1950</p>
+    <p>Track Length:  3.337km</p>
+    <p>Lap record: 1m 12.909s, Lewis Hamilton, Mercedes, 2021</p>
+    <p>Most pole positions: Ayrton Senna (5)</p>
+    <p>Most wins:  Ayrton Senna (6)</p>
+    <p>Trivia: Monaco was one of seven venues on the inaugural F1 World Championship calendar back in 1950</p>
+    <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Monaco_Circuit">
+</div>
+
+<div class="info-section" id="silverstone">
+    <h2>British Grand Prix</h2>
+    <p>First Grand Prix:  1950</p>
+    <p>Track Length: 5.891km
+    <p>Lap record: 1m 27.097s, Max Verstappen, Red Bull, 2020</p>
+    <p>Most pole positions: Lewis Hamilton (7)</p>
+    <p>Most wins:  Lewis Hamilton (8)</p>
+    <p>Trivia: Silverstone hosted the inaugural Formula 1 World Championship round on May 13, 1950</p>
+    <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Great_Britain_Circuit.png">
+</div>
+
+<div class="info-section" id="suzuka">
+    <h2>Japanese Grand Prix</h2>
+    <p>First Grand Prix: 1987</p>
+    <p>Track Length:  5.807km</p>
+    <p>Lap record: 1m 30.983s, Lewis Hamilton, Mercedes, 2019</p>
+    <p>Most pole positions:  Michael Schumacher (8)</p>
+    <p>Most wins: Michael Schumacher (6)</p>
+    <p>Trivia: Suzuka is the only figure-of-eight track on the F1 calendar</p>
+    <img src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/f_auto/q_auto/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Japan_Circuit">
+</div>
+
+<div class="info-section" id="melbourne">
+    <h2>Australian Grand Prix</h2>
+    <p>First Grand Prix: 1996 (first Australian Grand Prix held at Adelaide in 1985)</p>
+    <p>Track Length: 5.278km</p>
+    <p>Lap record: 1m 20.235s, Sergio Perez, 2023</p>
+    <p>Most pole positions: Lewis Hamilton (8)</p>
+    <p>Most wins: Michael Schumacher (4)</p>
+    <p>Trivia: Almost a third of the field retired on the first lap back in 2002 when eight cars pulled out following a dramatic multi-car collision triggered by Ralf Schumacher’s Williams flying over the back of Rubens Barrichello’s Ferrari</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFRQbWQjKuhtEGkjKt3_I7HrCFgPsoyJWCyA&s">
+</div>
+
+<div class="info-section" id="Las Vegas">
+    <h2>Las Vegas</h2>
+    <p>First Grand Prix: 2023</p>
+    <p>Track Length: 6.201km</p>
+    <p>Lap record: 1m 35.490s, Oscar Piastri, McLaren, 2023</p>
+    <p>Most pole positions: Charles Leclerc (1)</p>
+    <p>Most wins: Max Verstappen (1)</p>
+    <p>Trivia: F1 previously staged two races in Las Vegas in the early 1980s under the Caesars Palace Grand Prix moniker</p>
+    <img src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/f_auto/q_auto/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Las_Vegas_Circuit">
+</div>
+<div class="info-section" id="Monza">
+    <h2>Monza</h2>
+    <p>First Grand Prix: 1950</p> 
+    <p>Track Length: 5.793km</p>
+    <p>Lap record: 1m 21.046s, Rubens Barrichello, Ferrari, 2004</p>
+    <p>Most pole positions: Lewis Hamilton (7)</p>
+    <p>Most wins: Michael Schumacher and Lewis Hamilton (5)</p>
+    <p>Trivia: The Italian Grand Prix has featured on the F1 calendar since the inaugural 1950 season, with Monza home to every race apart from 1980, when Imola played host</p>
+    <img src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/f_auto/q_auto/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Italy_Circuit">
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    // Initialize the map
+    const map = L.map('map').setView([20, 0], 2); // Centered on the world
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // F1 race locations
+    const raceLocations = {
+        'Monaco': { coords: [43.7384, 7.4246], id: 'monaco' },
+        'Silverstone': { coords: [52.0733, -1.0158], id: 'silverstone' },
+        'Suzuka': { coords: [34.8431, 136.5406], id: 'suzuka' },
+        'Melbourne': { coords: [-37.8136, 144.9631], id: 'melbourne' },
+        'Las Vegas': { coords: [45.5088, -73.5613], id: 'Las Vegas' },
+        'Monza': { coords: [45.6174, 9.2815], id: 'Monza' }
+    };
+
+    // Function to add buttons on the map
+    function addRaceButtons() {
+        for (const race in raceLocations) {
+            const location = raceLocations[race];
+            const marker = L.marker(location.coords).addTo(map)
+                .bindPopup(`<button onclick="scrollToInfo('${location.id}')">${race} Grand Prix</button>`);
+        }
+    }
+
+    // Function to scroll to the info section
+    function scrollToInfo(id) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Add buttons to the map
+    addRaceButtons();
+</script>
+
+</body>
+</html>

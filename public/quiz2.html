@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>F1 Quiz</title>
+  <meta name="author" content="ALVARADO, Miguel Luis S., LAKIP, Ryann Andrea R." />
+  <meta name="revised" content="12/13/2024" />
+  <meta name="description" content="Sample code to process radio button and using array" />
+  
+</head>
+<body>
+  <div class="navbar">
+    <a href="indexhaha.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="teams.html">Teams</a>
+    <a href="circuits.html">Tracks</a>
+    <a href="quiz2.html">Your Team</a> <!-- creates a link to the quiz page-->
+  </div>
+  <style>
+    body {
+      font-family: Helvetica;
+      background-image: url("https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/heroimgfinal1.png?v=1734971742964");
+      background-size: 100% 100px;
+      background-repeat: no-repeat;
+    }
+    p {
+      font-weight: bold;
+    }
+    h1, h3 {
+      text-align: center;
+      color: red;
+    }
+    /*div {
+      padding: 10px;
+      width: 60%;
+      margin: auto;
+      border: 1px solid white;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 5px 5px 2px white;
+    }
+    div:nth-child(odd) {
+      background: grey;
+      color: red;
+    }
+    div:nth-child(even) {
+      background: black;
+      color: red;
+    }
+    button {
+      width: 90%;
+      display: block;
+      margin: auto;
+    }
+    #myVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+    }*/
+    .navbar {  
+        background: linear-gradient(45deg, #ff0000, #ff4d4d, #000000); /* Gradient effect */  
+        box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5); /* Soft red glow effect */  
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Highlight effect */  
+        overflow: hidden;  
+        font-family: copperplate;
+        padding: 15px; /* Spacing inside navbar */  
+        text-align: left; /* Center align text or links inside */  
+    }  
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 14px 20px;
+        display: inline-block;
+        font-size: 18px;
+    }
+
+    .navbar a:hover {
+        background: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
+        border-radius: 5px;
+    }
+  </style>
+  <h1>Which Team Are You? (Personality Test)</h1>
+  <h3>Team: <span id="score"></span></h3>
+  <div>
+    <p>1. Select a color</p>
+    <input type="radio" name="q1" data-values="mclaren"> Orange<br/>
+    <input type="radio" name="q1" data-values="ferrari"> Red<br/>
+    <input type="radio" name="q1" data-values="redBull"> Navy<br/>
+    <input type="radio" name="q1" data-values="mercedes"> Cyan <br/>
+    <input type="radio" name="q1" data-values="astonMartin"> Green <br/>
+    <input type="radio" name="q1" data-values="haas"> White<br/>
+    <input type="radio" name="q1" data-values="alpine"> Pink<br/>
+    <input type="radio" name="q1" data-values="williams"> Royal Blue<br/>
+    <input type="radio" name="q1" data-values="sauber"> Neon Green<br/>
+    <input type="radio" name="q1" data-values="rb"> Neon Blue<br/>
+  </div>
+  <div>
+    <p>2. What is your favorite subject?</p>
+    <input type="radio" name="q2" data-values="mclaren"> Math<br/>
+    <input type="radio" name="q2" data-values="ferrari"> Science<br/>
+    <input type="radio" name="q2" data-values="redBull"> English<br/>
+    <input type="radio" name="q2" data-values="mercedes"> Social Science<br/>
+    <input type="radio" name="q2" data-values="astonMartin"> Music<br/>
+    <input type="radio" name="q2" data-values="rb"> P.E<br/>
+    <input type="radio" name="q2" data-values="haas"> Filipino<br/>
+    <input type="radio" name="q2" data-values="sauber"> Art<br/>
+    <input type="radio" name="q2" data-values="williams"> Computer Science<br/>
+    <input type="radio" name="q2" data-values="alpine"> Health<br/>
+  </div>
+    <div>
+    <p>3. What would you do if: you discovered that you forgot to study for a Math exam the night before?</p>
+    <input type="radio" name="q3" data-values="mclaren,ferrari"> Pull an all-nighter to study<br/>
+    <input type="radio" name="q3" data-values="redBull,mercedes"> Plead for the teacher to cancel the assessment<br/>
+    <input type="radio" name="q3" data-values="astonMartin,rb"> Mag absent bukas<br/>
+    <input type="radio" name="q3" data-values="sauber,haas"> Sit and accept fate<br/>
+    <input type="radio" name="q3" data-values="williams,alpine"> FLIP it we ball<br/>
+  </div>
+    <div>
+    <p>4. Pick an item to include in your Christmas Wishlist</p>
+    <input type="radio" name="q4" data-values="mercedes,astonMartin"> A watch <br/>
+    <input type="radio" name="q4" data-values="haas,mercedes"> A fountain pen <br/>
+    <input type="radio" name="q4" data-values="redBull,mclaren"> A bomber jacket<br/>
+    <input type="radio" name="q4" data-values="ferrari,rb"> A pair of headphones<br/>
+    <input type="radio" name="q4" data-values="williams,alpine"> A handwritten letter from your special someone <br/>
+  </div>
+    <div>
+    <p>5. What is your favorite music genre?</p>
+    <input type="radio" name="q5" data-values="redBull,astonMartin"> Pop<br/>
+    <input type="radio" name="q5" data-values="mercedes,haas"> Country<br/>
+    <input type="radio" name="q5" data-values="sauber,alpine"> R&B<br/>
+    <input type="radio" name="q5" data-values="williams,ferrari"> Rock<br/>
+    <input type="radio" name="q5" data-values="mclaren,rb"> Jazz<br/>
+  </div>
+  <div>
+    <button onclick="scoreQuiz()">Submit</button>
+  </div>
+
+   <script>
+    function scoreQuiz() {
+      const selectedAnswers = document.querySelectorAll("input[type=radio]:checked");
+
+      if (selectedAnswers.length === 0) { // Check if ANY answers were selected
+        document.getElementById("score").textContent = "Please answer all questions.";
+        return; // Stop the function if no answers
+      }
+
+      const scores = {
+        alpine: 0, astonMartin: 0, ferrari: 0, haas: 0,
+        mcLaren: 0, mercedes: 0, rb: 0, redBull: 0,
+        williams: 0, sauber: 0
+      };
+
+      selectedAnswers.forEach(answer => {
+        const teams = answer.dataset.values ? answer.dataset.values.split(",") : [answer.value];
+        teams.forEach(team => {
+          scores[team.trim()]++;
+        });
+      });
+
+      let bestTeam = "";
+      let highestScore = 0;
+
+        for (const team in scores) {
+            if (scores[team] > highestScore) {
+                highestScore = scores[team];
+                bestTeam = team;
+            }
+        }
+
+      document.getElementById("score").textContent = `Your team is ${bestTeam}`;
+    }
+  </script>
+</body>
+</html>

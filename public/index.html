@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <nav>
+    <a href="indexhaha.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="teams.html">Teams</a>
+    <a href="circuits.html">Tracks</a>
+    <a href="quiz2.html">Your Team</a> <!-- creates a link to the quiz page-->
+</nav>
+    <title>LIGHTS OUT</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Black background */
+            color: white; /* Default text color */
+        }
+        header {
+            background: url('https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/heroimgfinal.png?v=1734969006498') no-repeat center center; /* Replace with your image URL */
+            background-size: cover;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        }
+        h1 {
+            position: relative;
+            z-index: 1; /* Ensure text is above the overlay */
+            font-size: 50px; 
+        }
+        nav {
+            background: linear-gradient(to right, #c8102e, #000); /* Gradient from red to black */
+            padding: 15px;
+            text-align: left;
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .navbar a:hover {
+        background: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
+        border-radius: 5px;
+    }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .video-section {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .about-section {
+            flex: 1;
+            background: #292929;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(255, 165, 165, 0.1);
+            color: rgb(255, 255, 255); /* Text color for about section */
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        .creators {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .creator {
+            margin: 0 20px;
+        }
+        .social-icons {
+            margin-top: 10px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+        }
+        img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>
+        <i>LIGHTS OUT:</i>
+        Formula 1 for Newbies
+    </h1>
+</header>
+
+<div class="container">
+    <div class="video-section">
+        <h2>A Sneak Peek into Formula 1 Racing</h2>
+        <iframe width="100%" height="315" src="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/videoplayback.mp4?v=1734528359267" allowfullscreen></iframe>
+    </div>
+    <div class="about-section">
+        <h2>About Us</h2>
+        <p>Hey there, F1 newbie! Get ready to buckle up and dive headfirst into the thrilling world of Formula 1! This website is your ultimate pit stop for everything F1. Whether you're curious about the sport's rich history, the legendary teams, the iconic tracks, or the cutting-edge technology, we've got you covered. Explore the different sections to learn about the legendary drivers who've graced the sport, from Ayrton Senna to Michael Schumacher. Discover the intense rivalries that have shaped F1, like the battles between Alain Prost and Ayrton Senna. 
+            Get to know the current teams and drivers, their strengths and weaknesses, and their quest for the championship title. Learn about the different track types, from the high-speed Monza to the challenging Monaco street circuit, and how each presents unique challenges for the drivers.
+            Delve into the technical aspects of F1 cars, from their powerful engines to their aerodynamic designs. Understand the strategies involved in racing, such as pit stops and tire management.
+            With so much to explore, you'll become an F1 expert in no time. So, what are you waiting for? Start your engines and explore the exciting world of Formula 1!</p>
+        </b>
+        <h3>Meet the Creators</h3>
+        <p>Miggy Alvarado and Andi Lakip are grade 9 PSHS MC students who have a deep passion for Formula 1. Miggy has been watching Formula 1 since 2017 and he introduced Andi to the sport back in 2022, and ever since they have always wanted to create a website to teach newbies a bit about this thrilling and exciting motorsport.</p>
+    </div>
+</div>
+
+<footer>
+    <h4>Creators</h4>
+    <div class="creators">
+        <div class="creator">
+                        <!--<img src="miggy.jpg" alt="Miggy Alvarado">-->
+            <p>Miggy Alvarado</p>
+            <div class="social-icons">
+                <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/0f4775b4-4b69-4fee-9b8f-e6c85934a6ca.image.png?v=1734598466349" width="100px" height="50px"" target="https://www.instagram.com/miggy_orbitor/">Instagram</a>
+                <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/7ab261c112429812160c05ad9f487c2f%20(1).jpg?v=1734599165966" width="50px" height="50px" target="https://www.facebook.com/profile.php?id=100086240574099">Facebook</a>
+            </div>
+        </div>
+        <div class="creator">
+            <!--<img src="andi.jpg" alt="Andi Lakip">-->
+            <p>Andi Lakip</p>
+            <div class="social-icons">
+                <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/0f4775b4-4b69-4fee-9b8f-e6c85934a6ca.image.png?v=1734598466349" width="100px" height="50px" target="https://www.instagram.com/andilakip/">Instagram</a>
+                <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/7ab261c112429812160c05ad9f487c2f%20(1).jpg?v=1734599165966" width="50px" height="50px" target="https://www.facebook.com/ryann.andrea.lakip/">Facebook</a>
+            </div>
+        </div>
+    </div>
+    <p>&copy; 2025 Lights Out. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+                

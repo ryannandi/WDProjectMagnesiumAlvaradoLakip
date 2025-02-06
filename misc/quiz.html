@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> F1 quiz </title>
+  <meta name="author" content="ALVARADO, Miguel Luis S., LAKIP, Ryann Andrea R." />
+  <meta name="revised" content="12/13/2024" />
+  <meta name="description" content="Sample code to process radio button and using array" />
+  <style>
+     body {
+       font-family: Helvetica;
+       background-image: url("https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/EN.jpg?v=1734609132208");
+       background-size: 100% 100%;
+       background-repeat: no-repeat;
+     }
+     p {
+       font-weight: bold;
+     }
+     h1,h3 {
+       text-align: center;
+       color: red;
+     }
+     div {
+       padding: 10px;
+       width: 60%;
+       margin: auto;
+       border:1px solid white;
+       border-radius: 10px;
+       margin-bottom: 10px;
+       box-shadow: 5px 5px 2px white;
+     }
+     div:nth-child(odd) {
+       background: grey;
+       color: red;
+     }
+     div:nth-child(even) {
+       background: black;
+       color: red;
+     }
+     button {
+       width: 90%;
+       display: block;
+       margin: auto;g
+     }
+     /* Style the video: 100% width and height to cover the entire window */
+     #myVideo {
+     position: fixed;
+     right: 0;
+     bottom: 0;
+     min-width: 100%;
+     min-height: 100%;
+     }
+  </style>
+</head>
+<body>
+  <!-- The video -->
+
+<!-- Optional: some overlay text to describe the video -->
+
+  <h1> Which Team Are You? (Personality Test) </h1>
+  <h3> Team: <span id="score"> 0</span> </h3>
+  <!-- radio button value="1" indicates correct answer and allotted point -->
+  <div>
+    <p> 1. Select a color  </p>
+      <input type="radio" name="q1" data-values="mclaren"> orange<br/>
+      <input type="radio" name="q1" data-values="ferrari"> red<br/>
+      <input type="radio" name="q1" data-values="red bull"> navy<br/>
+      <input type="radio" name="q1" data-values="mercedes"> cyan <br/>
+      <input type="radio" name="q1" data-values="aston martin"> green <br/>
+      <input type="radio" name="q1" data-values="haas"> white<br/>
+      <input type="radio" name="q1" data-values="alpine"> pink<br/>
+      <input type="radio" name="q1" data-values="williams"> royal blue<br/>
+      <input type="radio" name="q1" data-values="sauber"> neon green<br/>
+      <input type="radio" name="q1" data-values="rb"> neon blue<br/>
+  </div>
+  <div>
+    <p> 2. What is your favorite subject? </p>
+      <input type="radio" name="q2" data-value="mclaren"> Math<br/>
+      <input type="radio" name="q2" data-values="ferrari"> Science<br/>
+      <input type="radio" name="q2" data-values="red bull"> English<br/>
+      <input type="radio" name="q2" data-values="mercedes"> Social Science<br/>
+      <input type="radio" name="q2" data-values="aston martin"> Music<br/>
+      <input type="radio" name="q2" data-values="rb"> P.E<br/>
+      <input type="radio" name="q2" data-values="haas"> Filipino<br/>
+      <input type="radio" name="q2" data-values="sauber"> Art<br/>
+      <input type="radio" name="q2" data-values="williams"> Computer Science<br/>
+      <input type="radio" name="q2" data-values="alpine"> Health<br/>
+  </div>
+  <div>
+    <p> 3. What would you do if: you discovered that you forgot to study for a Math exam the night before</p>
+      <input type="radio" name="q2" data-values="mclaren, ferrari"> Pull an all-nighter to study<br/>
+      <input type="radio" name="q2" data-values="red bull, mercedes"> Plead for the teacher to cancel the assessment<br/>
+      <input type="radio" name="q2" data-values="aston martin, rb"> Mag absent bukas<br/>
+      <input type="radio" name="q2" data-values="sauber, haas"> Sit and accept fate<br/>
+      <input type="radio" name="q2" data-values="williams, alpine"> FLIP it we ball<br/>
+  </div>
+  <div>
+    <p> 4. What would you do if: you discovered that you forgot to study for a Math exam the night before</p>
+      <input type="radio" name="q2" data-values="mclaren, ferrari"> Pull an all-nighter to study<br/>
+      <input type="radio" name="q2" data-values="mclaren, ferrari"> Plead for the teacher to cancel the assessment<br/>
+      <input type="radio" name="q2" data-values="mclaren, ferrari"> Mag absent bukas<br/>
+      <input type="radio" name="q2" data-values="mclaren, ferrari"> Sit and accept fate<br/>
+      <input type="radio" name="q2" data-values="mclaren, ferrari"> Kinetic Friction it we ball<br/>
+  </div>
+  <div>
+    <p> 5. What is your favorite music genre?</p>
+      <input type="radio" name="q2" data-values="red bull, aston martin"> Pop<br/>
+      <input type="radio" name="q2" data-values="mercedes, haas"> Country<br/>
+      <input type="radio" name="q2" data-values="sauber, alpine"> R&B<br/>
+      <input type="radio" name="q2" data-values="williams, ferrari"> Rock<br/>
+      <input type="radio" name="q2" data-values="mclaren, rb"> Jazz<br/>
+  </div>
+  <div>
+    <button onclick="scoreQuiz()"> Submit </button>
+  </div>
+  
+  <script>
+    
+    const scores ={
+      alpine: 0,
+      astonMartin: 0,
+      ferrari: 0,
+      haas: 0,
+      mcLaren: 0,
+      mercedes: 0,
+      rb: 0,
+      redBull: 0,
+      williams: 0,
+      sauber: 0
+    }
+    
+    function scoreQuiz(){
+      const answers = 
+    }
+    function scoreQuiz() {
+      const selectedAnswers = document.querySelectorAll("input[type=radio]:checked"); // get all selected answers
+      selectedAnswers.forEach((answer) => {
+        const teams = answer.dataset.values ? answer.dataset.values.split(",") : [answer.value]; // handle dataset or value teams.forEach((team) => {
+        scores[team.trim()]++; // +1 score per team
+    });
+  });
+
+    // Find the team with the highest score
+    const highestScore = Math.max(...Object.values(scores const bestTeam = Object.keys(scores).find(team => scores[team] === highestScore);
+
+    // Display the result
+    const scoreElement = document.getElementById("score");
+    scoreElement.textContent = `Your team is ${bestTeam}`;
+}
+    /*function astonMartinScore(){
+      astonMartin++
+      return astonMartin
+    }
+    
+    function ferrariScore(){
+      ferrari++
+      return ferrari
+      console.log("imissyousainz")
+    }
+    
+    function sauberScore(){
+      sauber++
+      return sauber
+    }
+    
+    function sauberScore(){
+      sauber++
+      return sauber
+    }
+    
+    function sauberScore(){
+      sauber++
+      return sauber
+    }
+    
+      function scoreQuiz() { // function executes when button is clicked
+        // read all radio buttons and place them in answers as an array
+        let answers = document.querySelectorAll("input[type=radio]");
+        let totalScore = 0;
+        for (i in answers) { // loops trough the answers array using index i
+          // get the sum of the value of checked radio buttons
+          if (answers[i].checked)
+              if (Numberanswers[i].value == "mclaren"){
+                   mclarenScore() 
+                  }
+              if (answers[i].value == "ferrari"){
+                   ferrariScore() 
+                  }
+              if (answers[i].value == "red bull"){
+                   redBullScore() 
+                  }
+              if (answers[i].value == "mercedes"){
+                   mercedesScore() 
+                  }
+              if (answers[i].value == "aston martin"){
+                   astonMartinScore() 
+                  }
+              if (answers[i].value == "alpine"){
+                   alpineScore() 
+                  }
+              if (answers[i].value == "haas"){
+                   haasScore() 
+                  }
+              if (answers[i].value == "rb"){
+                   rbScore() 
+                  }
+              if (answers[i].value == "williams"){
+                   williamsScore() 
+                  }
+              if (answers[i].value == "sauber"){
+                   score.innerHTML = sauberScore() 
+                  }
+            
+              if (sauber > alpine){
+                score.innerHTML = "Your team is Sauber"
+              }
+        }
+        // output the score on the browser
+        
+      }*/
+  </script>
+</body>
+</html>
