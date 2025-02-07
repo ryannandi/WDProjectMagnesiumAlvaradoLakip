@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="navbar">
-    <a href="indexhaha.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="history.html">History</a>
     <a href="teams.html">Teams</a>
     <a href="circuits.html">Tracks</a>
@@ -136,7 +136,11 @@
   <div>
     <button onclick="scoreQuiz()">Submit</button>
   </div>
-
+  <footer>
+    <b>References:</b>
+    <p>Formula 1. (2019, March 15). The official home of Formula 1® | F1.com. Formula 1® - the Official F1® Website. https://www.formula1.com/</p>
+    <p>OpenAI. (2025). ChatGPT. ChatGPT; OpenAI. https://chatgpt.com/</p>
+  </footer>
    <script>
     function scoreQuiz() {
       const selectedAnswers = document.querySelectorAll("input[type=radio]:checked");
@@ -172,5 +176,6 @@
       document.getElementById("score").textContent = `Your team is ${bestTeam}`;
     }
   </script>
+
 </body>
 </html>
