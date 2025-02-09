@@ -40,15 +40,18 @@
         height: 500px;
         width: 500pxl
     }
+
+    footer {
+        color: white;
+    }
     </style>
     <div class="navbar">
-        <a href="indexhaha.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="history.html">History</a>
         <a href="teams.html">Teams</a>
         <a href="circuits.html">Tracks</a>
         <a href="quiz2.html">Your Team</a> <!-- creates a link to the quiz page-->
     </div>
-
 </head>
 <body>
 
@@ -63,6 +66,7 @@
     <p>Most wins:  Ayrton Senna (6)</p>
     <p>Trivia: Monaco was one of seven venues on the inaugural F1 World Championship calendar back in 1950</p>
     <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Monaco_Circuit">
+    <figcaption>Monaco Circuit</figcaption>
 </div>
 
 <div class="info-section" id="silverstone">
@@ -74,6 +78,7 @@
     <p>Most wins:  Lewis Hamilton (8)</p>
     <p>Trivia: Silverstone hosted the inaugural Formula 1 World Championship round on May 13, 1950</p>
     <img src="https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Great_Britain_Circuit.png">
+    <figcaption>Silverstone Circuit</figcaption>
 </div>
 
 <div class="info-section" id="suzuka">
@@ -85,6 +90,7 @@
     <p>Most wins: Michael Schumacher (6)</p>
     <p>Trivia: Suzuka is the only figure-of-eight track on the F1 calendar</p>
     <img src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/f_auto/q_auto/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Japan_Circuit">
+    <figcaption>Suzuka Circuit</figcaption>
 </div>
 
 <div class="info-section" id="melbourne">
@@ -96,6 +102,7 @@
     <p>Most wins: Michael Schumacher (4)</p>
     <p>Trivia: Almost a third of the field retired on the first lap back in 2002 when eight cars pulled out following a dramatic multi-car collision triggered by Ralf Schumacher’s Williams flying over the back of Rubens Barrichello’s Ferrari</p>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFRQbWQjKuhtEGkjKt3_I7HrCFgPsoyJWCyA&s">
+    <figcaption>Melbourne Circuit</figcaption>
 </div>
 
 <div class="info-section" id="Las Vegas">
@@ -107,6 +114,7 @@
     <p>Most wins: Max Verstappen (1)</p>
     <p>Trivia: F1 previously staged two races in Las Vegas in the early 1980s under the Caesars Palace Grand Prix moniker</p>
     <img src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/f_auto/q_auto/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Las_Vegas_Circuit">
+    <figcaption>Las Vegas Circuit</figcaption>
 </div>
 <div class="info-section" id="Monza">
     <h2>Monza</h2>
@@ -117,8 +125,13 @@
     <p>Most wins: Michael Schumacher and Lewis Hamilton (5)</p>
     <p>Trivia: The Italian Grand Prix has featured on the F1 calendar since the inaugural 1950 season, with Monza home to every race apart from 1980, when Imola played host</p>
     <img src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/f_auto/q_auto/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Italy_Circuit">
+    <figcaption>Monza Circuit</figcaption>
 </div>
-
+<footer>
+    <b>References:</b>
+    <p>Formula 1. (2019, March 15). The official home of Formula 1® | F1.com. Formula 1® - the Official F1® Website. https://www.formula1.com/</p>
+    <p>OpenAI. (2025). ChatGPT. ChatGPT; OpenAI. https://chatgpt.com/</p>
+</footer>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
     // Initialize the map
@@ -136,7 +149,7 @@
         'Silverstone': { coords: [52.0733, -1.0158], id: 'silverstone' },
         'Suzuka': { coords: [34.8431, 136.5406], id: 'suzuka' },
         'Melbourne': { coords: [-37.8136, 144.9631], id: 'melbourne' },
-        'Las Vegas': { coords: [45.5088, -73.5613], id: 'Las Vegas' },
+        'Las Vegas': { coords: [36.1716, -115.1391], id: 'Las Vegas' },
         'Monza': { coords: [45.6174, 9.2815], id: 'Monza' }
     };
 

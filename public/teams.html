@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="indexhaha.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="history.html">History</a>
         <a href="teams.html">Teams</a>
         <a href="circuits.html">Tracks</a>
@@ -175,27 +175,25 @@
       body {
         background-color: black;
       }
-      .navbar {  
-        background: linear-gradient(45deg, #ff0000, #ff4d4d, #000000); /* Gradient effect */  
-        box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5); /* Soft red glow effect */  
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Highlight effect */  
-        overflow: hidden;  
-        font-family: copperplate;
-        padding: 15px; /* Spacing inside navbar */  
-        text-align: left; /* Center align text or links inside */  
-    }  
-
-    .navbar a {
-        color: white;
-        text-decoration: none;
-        padding: 14px 20px;
-        display: inline-block;
-        font-size: 18px;
-    }
-
-    .navbar a:hover {
-        background: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
-        border-radius: 5px;
+      .navbar {
+            background: linear-gradient(to right, #ff0000, #1d1c1c); /* Gradient background */
+            overflow: hidden; /* Clear floats */
+            font-family: copperplate;
+        }
+        .navbar a {
+            float: left; /* Align links to the left */
+            display: block;
+            color: white;
+            font-family: "Lucida Console", "Courier New", monospace;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+        }
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+            color: yellow; /* Change text color on hover */
+        }
       </style>
     <div class="container">
         <h1>F1 Teams and Drivers</h1>
@@ -272,5 +270,10 @@
           </div>
         </div>
     </div>
+    <footer>
+        <b>References:</b>
+        <p>Formula 1. (2019, March 15). The official home of Formula 1® | F1.com. Formula 1® - the Official F1® Website. https://www.formula1.com/</p>
+        <p>OpenAI. (2025). ChatGPT. ChatGPT; OpenAI. https://chatgpt.com/</p>
+    </footer>
 </body>
 </html>
