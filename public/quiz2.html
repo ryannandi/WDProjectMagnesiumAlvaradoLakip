@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>F1 Quiz</title>
+  <title>LIGHTS OUT: F1 Quiz</title>
   <meta name="author" content="ALVARADO, Miguel Luis S., LAKIP, Ryann Andrea R." />
   <meta name="revised" content="12/13/2024" />
   <meta name="description" content="Sample code to process radio button and using array" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+  
 </head>
 <body>
-  <div class="navbar">
+  <nav class="navbar">
     <a href="index.html">Home</a>
     <a href="history.html">History</a>
     <a href="teams.html">Teams</a>
     <a href="circuits.html">Tracks</a>
-    <a href="quiz2.html">Your Team</a> <!-- creates a link to the quiz page-->
-  </div>
+    <a href="quiz2.html">Your Team</a>
+</nav>
   <style>
     body {
       font-family: Helvetica;
@@ -61,28 +62,25 @@
       min-width: 100%;
       min-height: 100%;
     }*/
-    .navbar {  
-        background: linear-gradient(45deg, #ff0000, #ff4d4d, #000000); /* Gradient effect */  
-        box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5); /* Soft red glow effect */  
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Highlight effect */  
-        overflow: hidden;  
-        font-family: copperplate;
-        padding: 15px; /* Spacing inside navbar */  
-        text-align: left; /* Center align text or links inside */  
-    }  
-
-    .navbar a {
-        color: white;
-        text-decoration: none;
-        padding: 14px 20px;
-        display: inline-block;
-        font-size: 18px;
-    }
-
-    .navbar a:hover {
-        background: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
-        border-radius: 5px;
-    }
+    .navbar {
+            background: linear-gradient(to right, #ff0000, #1d1c1c); /* Gradient background */
+            overflow: hidden; /* Clear floats */
+            font-family: copperplate;
+        }
+        .navbar a {
+            float: left; /* Align links to the left */
+            display: block;
+            color: white;
+            font-family: "Lucida Console", "Courier New", monospace;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+        }
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+            color: yellow; /* Change text color on hover */
+        }
   </style>
   <h1>Which Team Are You? (Personality Test)</h1>
   <h3>Team: <span id="score"></span></h3>

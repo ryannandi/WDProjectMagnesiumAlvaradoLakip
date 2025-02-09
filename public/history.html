@@ -4,44 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="style.css" rel="stylesheet" type="text/css" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <title>Lights out: Formula 1 for Newbies</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+  <title>LIGHTS OUT: History of F1</title>
 </head>
 
 <body>
-  <div class="navbar"> <!--nav bar-->
+  <nav class="navbar">
     <a href="index.html">Home</a>
     <a href="history.html">History</a>
     <a href="teams.html">Teams</a>
     <a href="circuits.html">Tracks</a>
-    <a href="quiz2.html">Your Team</a> <!-- creates a link to the quiz page-->
-  </div>
+    <a href="quiz2.html">Your Team</a>
+</nav>
 
   <style>
-    .navbar {  
-        background: linear-gradient(45deg, #ff0000, #ff4d4d, #000000); /* Gradient effect */  
-        box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5); /* Soft red glow effect */  
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Highlight effect */  
-        overflow: hidden;  
-        font-family: copperplate;
-        padding: 15px; /* Spacing inside navbar */  
-        text-align: left; /* Center align text or links inside */  
-    }  
-
-    .navbar a {
-        color: white;
-        text-decoration: none;
-        padding: 14px 20px;
-        display: inline-block;
-        font-size: 18px;
+    .navbar {
+            background: linear-gradient(to right, #ff0000, #1d1c1c); /* Gradient background */
+            overflow: hidden; /* Clear floats */
+            font-family: copperplate;
+        }
+        .navbar a {
+            float: left; /* Align links to the left */
+            display: block;
+            color: white;
+            font-family: "Lucida Console", "Courier New", monospace;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+        }
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+            color: yellow; /* Change text color on hover */
+        }
+    
+    .decade-section {
+        margin-bottom: 40px; /* Add spacing between sections */
+        padding: 20px;
+        background-color: #f8f8f8; /* Light background for each decade */
+        border-radius: 8px;
     }
 
-    .navbar a:hover {
-        background: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
-        border-radius: 5px;
+    .decade-section img {
+        width: 100%;
+        max-width: 600px;
+        display: block;
+        margin: 20px 0;
+    }
+    p {
+      color: black;
+    }
+    #ref {
+      color: white;
     }
   </style>
 
@@ -128,6 +145,8 @@
     <p id="ref">Formula 1. (2019, March 15). The official home of Formula 1® | F1.com. Formula 1® - the Official F1® Website. https://www.formula1.com/</p>
     <br>
     <p id="ref">OpenAI. (2025). ChatGPT. ChatGPT; OpenAI. https://chatgpt.com/</p>
+    <br>
+    <p id="ref">BLACKBOX.AI. (n.d.). https://www.blackbox.ai/</p>
   </footer>
 </body>
 </html>

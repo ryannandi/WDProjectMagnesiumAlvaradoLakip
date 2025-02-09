@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-  <nav>
-    <a href="indexhaha.html">Home</a>
-    <a href="history.html">History</a>
-    <a href="teams.html">Teams</a>
-    <a href="circuits.html">Tracks</a>
-    <a href="quiz2.html">Your Team</a> <!-- creates a link to the quiz page-->
-</nav>
-    <title>LIGHTS OUT</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <nav class="navbar">
+        <a href="indexhaha.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="teams.html">Teams</a>
+        <a href="circuits.html">Tracks</a>
+        <a href="quiz2.html">Your Team</a> <!-- creates a link to the quiz page-->
+    </nav>
+    <title>LIGHTS OUT: Formula 1 for Newbies</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -46,21 +46,26 @@
             z-index: 1; /* Ensure text is above the overlay */
             font-size: 50px; 
         }
-        nav {
-            background: linear-gradient(to right, #c8102e, #000); /* Gradient from red to black */
-            padding: 15px;
-            text-align: left;
-            font-family: "Lucida Console", "Courier New", monospace;
+        .navbar {
+            background: linear-gradient(to right, #ff0000, #1d1c1c); /* Gradient background */
+            overflow: hidden; /* Clear floats */
+            font-family: copperplate;
         }
-        nav a {
+        .navbar a {
+            float: left; /* Align links to the left */
+            display: block;
             color: white;
+            font-family: "Lucida Console", "Courier New", monospace;
+            text-align: center;
+            padding: 14px 20px;
             text-decoration: none;
-            margin: 0 15px;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
         }
         .navbar a:hover {
-        background: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
-        border-radius: 5px;
-    }
+            background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+            color: yellow; /* Change text color on hover */
+        }
+
         .container {
             display: flex;
             justify-content: space-around;
@@ -94,12 +99,27 @@
             margin: 0 20px;
         }
         .social-icons {
-            margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         }
         .social-icons a {
-            margin: 0 10px;
+            display: flex;
+            align-items: center;
             color: white;
             text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+         }
+
+        .social-icons a:hover {
+            color: yellow;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
         }
         img {
             border-radius: 50%;
@@ -112,6 +132,8 @@
 
 <header>
     <h1>
+        <img src="android-chrome-512x512.png" alt="Logo Lights Out">
+        <br>
         <i>LIGHTS OUT:</i>
         Formula 1 for Newbies
     </h1>
@@ -134,28 +156,96 @@
     </div>
 </div>
 
-<footer>
-    <h4>Creators</h4>
-    <div class="creators">
-        <div class="creator">
-                        <!--<img src="miggy.jpg" alt="Miggy Alvarado">-->
-            <p>Miggy Alvarado</p>
-            <div class="social-icons">
-                <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/0f4775b4-4b69-4fee-9b8f-e6c85934a6ca.image.png?v=1734598466349" width="100px" height="50px"" target="https://www.instagram.com/miggy_orbitor/">Instagram</a>
-                <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/7ab261c112429812160c05ad9f487c2f%20(1).jpg?v=1734599165966" width="50px" height="50px" target="https://www.facebook.com/profile.php?id=100086240574099">Facebook</a>
+        <footer>
+            <h4>Creators</h4>
+            <div class="creators">
+                <div class="creator">
+                    <p><b>Miguel Luis Alvarado</b></p>
+                    <p>Miggy is a 15-year-old student with a fondness for sports, including Formula 1 and basketball, where he avidly enjoys supporting his teams: McLaren and the Boston Celtics. In his free time, he dances, plays the guitar, works out, and cooks like a chef he's a five star michelin.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/miggy_orbitor/" target="_blank">
+                            <img src="./1.png" alt="Instagram" class="icon"> miggy_orbitor
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100086240574099" target="_blank">
+                            <img src="./2.png" alt="Facebook" class="icon"> Miguel Alvarado
+                        </a>
+                        <a href="mailto:b2028msalvarado@pshs.edu.ph">
+                            <img src="./3.png" alt="Email" class="icon"> b2028mlsavlarado@pshs.edu.ph
+                        </a>
+                    </div>
+                </div>
+                <div class="creator">
+                    <p><b>Ryann Andrea Lakip</b></p>
+                    <p>Andi is a 16-year-old student who finds joy in creative hobbies such as writing, reading, and playing various musical instruments. Her knowledge of Formula 1 comes mostly from Miggy, who taught her the ropes of the sport. She loves tennis too omg what a win. Join Lagablab.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/andilakip/" target="_blank">
+                            <img src="./1.png" alt="Instagram" class="icon"> andilakip
+                        </a>
+                        <a href="https://www.facebook.com/ryann.andrea.lakip/" target="_blank">
+                            <img src="./2.png" alt="Facebook" class="icon"> Ryann Andrea Lakip
+                        </a>
+                        <a href="mailto:b2028rarlakip@pshs.edu.ph">
+                            <img src="./3.png" alt="Email" class="icon"> b2028rarlakip@pshs.edu.ph
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p>&copy; 2025 Lights Out. All rights reserved.</p>
+        </footer>
+<!--        
+        <h4>Creators</h4>
+        <div class="creators">
+            <div class="creator">
+                <p>Miggy Alvarado</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/miggy_orbitor/" target="_blank">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100086240574099" target="_blank">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                    <a href="mailto:miggy@example.com">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
+            </div>
+            <div class="creator">
+                <p>Andi Lakip</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/andilakip/" target="_blank">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.facebook.com/ryann.andrea.lakip/" target="_blank">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                    <a href="mailto:andi@example.com">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
             </div>
         </div>
+        <p>&copy; 2025 Lights Out. All rights reserved.</p>
+    </footer>-->
+    
+<!--<div class="creators">
         <div class="creator">
-            <!--<img src="andi.jpg" alt="Andi Lakip">-->
-            <p>Andi Lakip</p>
-            <div class="social-icons">
-                <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/0f4775b4-4b69-4fee-9b8f-e6c85934a6ca.image.png?v=1734598466349" width="100px" height="50px" target="https://www.instagram.com/andilakip/">Instagram</a>
-                <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/7ab261c112429812160c05ad9f487c2f%20(1).jpg?v=1734599165966" width="50px" height="50px" target="https://www.facebook.com/ryann.andrea.lakip/">Facebook</a>
-            </div>
-        </div>
-    </div>
-    <p>&copy; 2025 Lights Out. All rights reserved.</p>
-</footer>
+                        <p>Miggy Alvarado</p>
+                        <div class="social-icons">
+                            <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/0f4775b4-4b69-4fee-9b8f-e6c85934a6ca.image.png?v=1734598466349" width="100px" height="50px"" target="https://www.instagram.com/miggy_orbitor/">Instagram</a>
+                            <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/7ab261c112429812160c05ad9f487c2f%20(1).jpg?v=1734599165966" width="50px" height="50px" target="https://www.facebook.com/profile.php?id=100086240574099">Facebook</a>
+                        </div>
+                    </div>
+                    <div class="creator">
+                        <p>Andi Lakip</p>
+                        <div class="social-icons">
+                            <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/0f4775b4-4b69-4fee-9b8f-e6c85934a6ca.image.png?v=1734598466349" width="100px" height="50px" target="https://www.instagram.com/andilakip/">Instagram</a>
+                            <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/7ab261c112429812160c05ad9f487c2f%20(1).jpg?v=1734599165966" width="50px" height="50px" target="https://www.facebook.com/ryann.andrea.lakip/">Facebook</a>
+                        </div>
+                    </div>
+                </div>
+                <p>&copy; 2025 Lights Out. All rights reserved.</p>
+            </footer>
+-->
 
 </body>
 </html>

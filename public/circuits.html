@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 Race Locations</title>
+    <title>LIGHTS OUT: F1 Race Locations</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <style>
         #map {
             height: 600px;
@@ -20,20 +24,24 @@
             background-color: black;
         }
         .navbar {
-      background-color: red; /* Dark background */
-      overflow: hidden; /* Clear floats */
-      font-family: copperplate;
-    }
-
-    .navbar a {
-      float: left; /* Align links to the left */
-      display: block;
-      color: white;
-      font-family: "Lucida Console", "Courier New", monospace;
-      text-align: center;
-      padding: 14px 20px;
-      text-decoration: none;
-    }
+            background: linear-gradient(to right, #ff0000, #1d1c1c); /* Gradient background */
+            overflow: hidden; /* Clear floats */
+            font-family: copperplate;
+        }
+        .navbar a {
+            float: left; /* Align links to the left */
+            display: block;
+            color: white;
+            font-family: "Lucida Console", "Courier New", monospace;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+        }
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+            color: yellow; /* Change text color on hover */
+        }
    
     img {
         display: inline;
@@ -45,13 +53,13 @@
         color: white;
     }
     </style>
-    <div class="navbar">
+    <nav class="navbar">
         <a href="index.html">Home</a>
         <a href="history.html">History</a>
         <a href="teams.html">Teams</a>
         <a href="circuits.html">Tracks</a>
-        <a href="quiz2.html">Your Team</a> <!-- creates a link to the quiz page-->
-    </div>
+        <a href="quiz2.html">Your Team</a>
+    </nav>
 </head>
 <body>
 
