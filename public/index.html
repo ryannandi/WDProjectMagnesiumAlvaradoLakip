@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
     <nav class="navbar">
-        <a href="indexhaha.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="history.html">History</a>
         <a href="teams.html">Teams</a>
         <a href="circuits.html">Tracks</a>
@@ -91,41 +91,110 @@
             position: relative;
         }
         .creators {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .creator {
-            margin: 0 20px;
-        }
-        .social-icons {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        }
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
-         }
+    display: flex; /* Use flexbox to align creators side by side */
+    justify-content: center; /* Center the creators */
+    margin-top: 10px;
+}
 
-        .social-icons a:hover {
-            color: yellow;
-        }
+.creator {
+    margin: 0 20px; /* Space between creators */
+    text-align: center; /* Center text under icons */
+}
 
-        .icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
-        }
+.social-icons {
+    display: flex; /* Use flexbox for social icons */
+    justify-content: center; /* Center the columns */
+    gap: 20px; /* Space between the two columns */
+}
+
+.social-column {
+    display: flex; /* Use flexbox for vertical stacking */
+    flex-direction: column; /* Stack icons vertically */
+    align-items: center; /* Center icons horizontally */
+    gap: 10px; /* Space between icons */
+}
         img {
             border-radius: 50%;
             width: 100px;
             height: 100px;
         }
+
+
+.fb, .ig, .mail {
+    display: inline-block; /* Ensure they are inline-block elements */
+    width: 1416px; height: 708px;
+    background-size: 25%; /* Ensure the background image scales correctly */
+    background-repeat: no-repeat;
+
+}
+
+.fb, .ig, .mail {
+    display: inline-block; /* Ensure they are inline-block elements */
+    width: 32px; /* Set to the desired width of the icon */
+    height: 32px; /* Set to the desired height of the icon */
+    background-size: contain; /* Ensure the background image scales correctly */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+}
+
+/* Facebook Icon */
+.fb {
+    background: url('./sprites/css_sprites1.png') no-repeat; /* Ensure the URL is correct */
+    background-position: 0 0; /* Normal state position */
+}
+
+.fb:hover {
+    background-position: 0 -708px; /* Adjust for hover state */
+}
+
+/* Instagram Icon */
+.ig {
+    background: url('./sprites/css_sprites.png') no-repeat; /* Ensure the URL is correct */
+    background-position: 0 0; /* Normal state position */
+}
+
+.ig:hover {
+    background-position: 0 -708px; /* Adjust for hover state */
+}
+
+/* Email Icon */
+.mail {
+    background: url('./sprites/css_sprites2.png') no-repeat; /* Ensure the URL is correct */
+    background-position: 0 0; /* Normal state position */
+}
+
+.mail:hover {
+    background-position: 0 -708px; /* Adjust for hover state */
+}
+
+/* For the second column, ensure the classes are distinct */
+.ig2 {
+    background: url('./sprites/css_sprites.png') no-repeat; /* Ensure the URL is correct */
+    background-position: 0 0; /* Normal state position */
+}
+
+.ig2:hover {
+    background-position: 0 -708px; /* Adjust for hover state */
+}
+
+.fb2 {
+    background: url('./sprites/css_sprites1.png') no-repeat; /* Ensure the URL is correct */
+    background-position: 0 0; /* Normal state position */
+}
+
+.fb2:hover {
+    background-position: 0 -708px; /* Adjust for hover state */
+}
+
+.mail2 {
+    background: url('./sprites/css_sprites2.png') no-repeat; /* Ensure the URL is correct */
+    background-position: 0 0; /* Normal state position */
+}
+
+.mail2:hover {
+    background-position: 0 -708px; /* Adjust for hover state */
+}
+    
+
     </style>
 </head>
 <body>
@@ -157,41 +226,43 @@
 </div>
 
         <footer>
-            <h4>Creators</h4>
-            <div class="creators">
-                <div class="creator">
-                    <p><b>Miguel Luis Alvarado</b></p>
-                    <p>Miggy is a 15-year-old student with a fondness for sports, including Formula 1 and basketball, where he avidly enjoys supporting his teams: McLaren and the Boston Celtics. In his free time, he dances, plays the guitar, works out, and cooks like a chef he's a five star michelin.</p>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/miggy_orbitor/" target="_blank">
-                            <img src="./1.png" alt="Instagram" class="icon"> miggy_orbitor
-                        </a>
-                        <a href="https://www.facebook.com/profile.php?id=100086240574099" target="_blank">
-                            <img src="./2.png" alt="Facebook" class="icon"> Miguel Alvarado
-                        </a>
-                        <a href="mailto:b2028msalvarado@pshs.edu.ph">
-                            <img src="./3.png" alt="Email" class="icon"> b2028mlsavlarado@pshs.edu.ph
-                        </a>
-                    </div>
-                </div>
-                <div class="creator">
-                    <p><b>Ryann Andrea Lakip</b></p>
-                    <p>Andi is a 16-year-old student who finds joy in creative hobbies such as writing, reading, and playing various musical instruments. Her knowledge of Formula 1 comes mostly from Miggy, who taught her the ropes of the sport. She loves tennis too omg what a win. Join Lagablab.</p>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/andilakip/" target="_blank">
-                            <img src="./1.png" alt="Instagram" class="icon"> andilakip
-                        </a>
-                        <a href="https://www.facebook.com/ryann.andrea.lakip/" target="_blank">
-                            <img src="./2.png" alt="Facebook" class="icon"> Ryann Andrea Lakip
-                        </a>
-                        <a href="mailto:b2028rarlakip@pshs.edu.ph">
-                            <img src="./3.png" alt="Email" class="icon"> b2028rarlakip@pshs.edu.ph
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <p>&copy; 2025 Lights Out. All rights reserved.</p>
-        </footer>
+    <h4>Creators</h4>
+    <div class="creators">
+        <div class="creator">
+            <p><b>Miguel Luis Alvarado</b></p>
+            <p>Miggy is a 15-year-old student with a fondness for sports, including Formula 1 and basketball, where he avidly enjoys supporting his teams: McLaren and the Boston Celtics. In his free time, he dances, plays the guitar, works out, and cooks like a chef he's a five star michelin.</p>
+        </div>
+        <div class="creator">
+            <p><b>Ryann Andrea Lakip</b></p>
+            <p>Andi is a 16-year-old student who finds joy in creative hobbies such as writing, reading, and playing various musical instruments. Her knowledge of Formula 1 comes mostly from Miggy, who taught her the ropes of the sport. She loves tennis too omg what a win. Join Lagablab.</p>
+        </div>
+    </div>
+    <div class="social-icons">
+        <div class="social-column">
+            <a href="https://www.instagram.com/miggy_orbitor/" target="_blank">
+                <div class="ig"></div> 
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100086240574099" target="_blank">
+                <div class="fb"></div> 
+            </a>
+            <a href="mailto:b2028msalvarado@pshs.edu.ph">
+                <div class="mail"></div>
+            </a>
+        </div>
+        <div class="social-column">
+            <a href="https://www.instagram.com/andilakip/" target="_blank">
+                <div class="ig2"></div>
+            </a>
+            <a href="https://www.facebook.com/ryann.andrea.lakip/" target="_blank">
+                <div class="fb2"></div>
+            </a>
+            <a href="mailto:b2028rarlakip@pshs.edu.ph">
+                <div class="mail2"></div>
+            </a>
+        </div>
+    </div>
+    <p>&copy; 2025 Lights Out. All rights reserved.</p>
+</footer>
 <!--        
         <h4>Creators</h4>
         <div class="creators">
