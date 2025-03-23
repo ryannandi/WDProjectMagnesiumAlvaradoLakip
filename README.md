@@ -1,44 +1,6 @@
-# Hello Node!
+**UPDATES ON THE PROJECT**
 
-This project includes a Node.js server script and a web page that connects to it. The front-end page presents a form the visitor can use to submit a color name, sending the submitted value to the back-end API running on the server. The server returns info to the page that allows it to update the display with the chosen color. 🎨
+In the succeeding weeks of the quarter, we plan to be able to maximize our website by using what we have learned from server running and the use of css elements to further maximize our webpage. We shall implemement this through creating two more webpages for further versatility and exploration. These webpages will be to strengthen the user's knowledge about Formula 1. Moreover, we shall be improving the CSS Layout to make the webpage visually pleasing for the user. Furthermore, we shall be implementing a client-side server so people may fill out forms and create their own accounts in our platform. Overall, these changes shall improve the user interface and will prompt more user
+interaction. 
 
-[Node.js](https://nodejs.org/en/about/) is a popular runtime that lets you run server-side JavaScript. This project uses the [Fastify](https://www.fastify.io/) framework and explores basic templating with [Handlebars](https://handlebarsjs.com/).
-
-_Last updated: 14 August 2023_
-
-## Prerequisites
-
-You'll get best use out of this project if you're familiar with basic JavaScript. If you've written JavaScript for client-side web pages this is a little different because it uses server-side JS, but the syntax is the same!
-
-## What's in this project?
-
-← `README.md`: That’s this file, where you can tell people what your cool website does and how you built it.
-
-← `public/style.css`: The styling rules for the pages in your site.
-
-← `server.js`: The **Node.js** server script for your new site. The JavaScript defines the endpoints in the site back-end, one to return the homepage and one to update with the submitted color. Each one sends data to a Handlebars template which builds these parameter values into the web page the visitor sees.
-
-← `package.json`: The NPM packages for your project's dependencies.
-
-← `src/`: This folder holds the site template along with some basic data files.
-
-← `src/pages/index.hbs`: This is the main page template for your site. The template receives parameters from the server script, which it includes in the page HTML. The page sends the user submitted color value in the body of a request, or as a query parameter to choose a random color.
-
-← `src/colors.json`: A collection of CSS color names. We use this in the server script to pick a random color, and to match searches against color names.
-
-← `src/seo.json`: When you're ready to share your new site or add a custom domain, change SEO/meta settings in here.
-
-## Try this next 🏗️
-
-Take a look in `TODO.md` for next steps you can try out in your new site!
-
-___Want a minimal version of this project to build your own Node.js app? Check out [Blank Node](https://glitch.com/edit/#!/remix/glitch-blank-node)!___
-
-![Glitch](https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2FLogo_Color.svg?v=1602781328576)
-
-## You built this with Glitch!
-
-[Glitch](https://glitch.com) is a friendly community where millions of people come together to build web apps and websites.
-
-- Need more help? [Check out our Help Center](https://help.glitch.com/) for answers to any common questions.
-- Ready to make it official? [Become a paid Glitch member](https://glitch.com/pricing) to boost your app with private sharing, more storage and memory, domains and more.
+The two webpages shall be about the meme culture of Formula 1 and also a step by step guide into the rules and regulations of Formula 1. These webpages will enchance the user's knowledge about the sport, especially if they are a newbie. Moreover, we shall be creating a client side form handle in webpages such as the quiz page for the user to be able to submit infomration and receive the corresponding results. In terms of CSS, we shall be using the box-sizing format and flexbox to be able to better organize the page. We shall also make use of minor details such as positioning and z-index so that we may control how the eleements are positioned and keep important elements of the webpage on the user's browser window.
