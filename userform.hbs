@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+    
+    {{#if user}}
+        <h2>Username: {{user.username}}</h2>
+        <p>Pronouns: {{user.pronouns}}</p>
+        <p>Bio: {{user.bio}}</p>
+        <p>Country of Origin: {{user.country}}</p>
+        {{#if user.profilePicture}}
+            <img src="{{user.profilePicture}}" alt="Profile Picture" style="max-width: 200px;">
+        {{/if}}
+    {{else}}
+        <p>No user data available.</p>
+    {{/if}}
+    
+    <a href="/userform">Edit Profile</a>
+</body>
+</html>

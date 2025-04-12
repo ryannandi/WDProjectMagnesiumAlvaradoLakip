@@ -1,27 +1,48 @@
-// Step 3: Require/Loads the express module
 const express = require('express');
-// body-parser is used to read data payload from the http request body
-const bodyParser = require('body-parser'); 
-//  path is used to set default directories for MVC and also for the static files
-const path = require('path'); 
-// include the defined package
+const multer = require('multer');
+const path = require('path');
+const exphbs = require('express-handlebars');
 
-
-// Step 4: Creates our express server
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-//Serves static files inside the public folder
-app.use(express.static(path.join(__dirname, 'public')));
+// Set up Handlebars
+app.engine('hbs', exphbs({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
-app.use(bodyParser.urlencoded({ extended: true }));
 
-//Sets a basic route index.hbs when website initially starts and when home is clicked from the nav bar or whenever a process needs to go back to home 
-app.get('/', (req, res) => {
-    res.render('index.hbs');
-})
+// Middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve uploaded files
 
+// Set up multer for file uploads
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads/');
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname)); // Append timestamp to filename
+    }
+});
+const upload = multer({ storage: storage });
 
-// Step 5: Start HTTP Server on a port number 3000
-// This will create a web service for your own project
-const port = 3000;
-app.listen(port, () => console.log(`App listening to port ${port}`));
+// Render the user form
+app.get('/userform', (req, res) => {
+    res.render('userform');
+});
+
+// Handle form submission
+app.post('/submit', upload.single('profilePicture'), (req, res) => {
+    const userData = {
+        username: req.body.username,
+        pronouns: req.body.pronouns,
+        bio: req.body.bio,
+        country: req.body.country,
+        profilePicture: req.file ? `/uploads/${req.file.filename}` : null
+    };
+    
+    // Render the main page with user data
+    res.render('main', { user: userData });
+});
+
+// Start the server
