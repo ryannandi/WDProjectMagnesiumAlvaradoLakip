@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="style.css">
   
 </head>
 <body>
@@ -21,10 +22,15 @@
 </nav>
   <style>
     body {
-      font-family: Helvetica;
-      background-image: url("https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/heroimgfinal1.png?v=1734971742964");
-      background-size: 100% 100px;
-      background-repeat: no-repeat;
+        font-family: Helvetica;
+        background-image: url("https://img.goodfon.com/wallpaper/big/7/7b/vettel-f1-rb10-reb-bull.webp");
+        background-size: cover; /* Ensures the image covers the entire page */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        background-attachment: fixed; /* Keeps the background fixed while scrolling */
+        background-position: center; /* Centers the image */
+        font-family: monospace;
+        background-color: black;
+        color: white;
     }
     p {
       font-weight: bold;
@@ -33,7 +39,7 @@
       text-align: center;
       color: red;
     }
-    /*div {
+    div {
       padding: 10px;
       width: 60%;
       margin: auto;
@@ -62,25 +68,8 @@
       min-width: 100%;
       min-height: 100%;
     }*/
-    .navbar {
-            background: linear-gradient(to right, #ff0000, #1d1c1c); /* Gradient background */
-            overflow: hidden; /* Clear floats */
-            font-family: copperplate;
-        }
-        .navbar a {
-            float: left; /* Align links to the left */
-            display: block;
-            color: white;
-            font-family: "Lucida Console", "Courier New", monospace;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
-        }
-        .navbar a:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
-            color: yellow; /* Change text color on hover */
-        }
+    
+    
   </style>
   <h1>Which Team Are You? (Personality Test)</h1>
   <h3>Team: <span id="score"></span></h3>
