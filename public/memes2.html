@@ -2,58 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Formula 1 Memes</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OVERDRIVE: F1 Meme Hub</title>
+  <meta name="author" content="ALVARADO, Miguel Luis S., LAKIP, Ryann Andrea R." />
+  <meta name="revised" content="04/26/2025" />
+  <meta name="description" content="The ultimate hub for Formula 1 memes, laughter, and racing legends." />
+  <link rel="stylesheet" href="style.css">
   <style>
-    /* Simple fade animation for lightbox */
-    .fade {
-      transition: all 0.3s ease-in-out;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    nav {
+      background: linear-gradient(to right, #ff4500, #222222);
+      padding: 12px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #e0e0e0;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      font-family: "Lucida Console", "Courier New", monospace;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 25px 0;
+      color: #ff4500;
+      letter-spacing: 2px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 18px;
+      padding: 25px;
+      margin: 0 auto;
+      max-width: 1300px;
+    }
+
+    .gallery figure {
+      margin: 0;
+      text-align: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+    }
+
+    .gallery figcaption {
+      margin-top: 7px;
+      font-size: 15px;
+      color: #b0b0b0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 12px;
+      background: #222222;
+      color: #e0e0e0;
+      margin-top: 30px;
+      font-size: 14px;
     }
   </style>
 </head>
-<body class="bg-gray-100 p-6">
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="drivers.html">Drivers</a>
+    <a href="teams.html">Teams</a>
+    <a href="tracks.html">Tracks</a>
+    <a href="quiz.html">Find Your Team</a>
+    <a href="glossary.html">Glossary</a>
+    <a href="memes.html">Memes</a>
+  </nav>
 
-  <h1 class="text-4xl font-bold text-center mb-8">🏎️ Formula 1 Memes 🏁</h1>
+  <h1>F1 Meme Hub</h1>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    <!-- Image Card -->
-    <div class="cursor-pointer" onclick="openLightbox('https://via.placeholder.com/600x800?text=Meme+1')">
-      <img src="https://via.placeholder.com/300x400?text=Meme+1" alt="F1 Meme 1" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-    </div>
-
-    <div class="cursor-pointer" onclick="openLightbox('https://via.placeholder.com/600x800?text=Meme+2')">
-      <img src="https://via.placeholder.com/300x400?text=Meme+2" alt="F1 Meme 2" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-    </div>
-
-    <div class="cursor-pointer" onclick="openLightbox('https://via.placeholder.com/600x800?text=Meme+3')">
-      <img src="https://via.placeholder.com/300x400?text=Meme+3" alt="F1 Meme 3" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-    </div>
-
-    <div class="cursor-pointer" onclick="openLightbox('https://via.placeholder.com/600x800?text=Meme+4')">
-      <img src="https://via.placeholder.com/300x400?text=Meme+4" alt="F1 Meme 4" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-    </div>
-    <!-- Add more as needed -->
+  <div class="gallery">
+    <figure>
+      <img src="https://via.placeholder.com/400x600?text=Meme+1" alt="Meme 1">
+      <figcaption>"No grip? No problem." - Bahrain 2022</figcaption>
+    </figure>
+    <figure>
+      <img src="https://via.placeholder.com/400x600?text=Meme+2" alt="Meme 2">
+      <figcaption>"Engine modes: Party time" - Monza 2019</figcaption>
+    </figure>
+    <figure>
+      <img src="https://via.placeholder.com/400x600?text=Meme+3" alt="Meme 3">
+      <figcaption>"Pit stop chaos" - Singapore 2017</figcaption>
+    </figure>
+    <figure>
+      <img src="https://via.placeholder.com/400x600?text=Meme+4" alt="Meme 4">
+      <figcaption>"Team orders incoming" - Austria 2020</figcaption>
+    </figure>
+    <figure>
+      <img src="https://via.placeholder.com/400x600?text=Meme+5" alt="Meme 5">
+      <figcaption>"Weather forecast: 100% drama" - Spa 2021</figcaption>
+    </figure>
+    <figure>
+      <img src="https://via.placeholder.com/400x600?text=Meme+6" alt="Meme 6">
+      <figcaption>"Post-race interviews got me like..." - Abu Dhabi 2022</figcaption>
+    </figure>
+    <figure>
+      <img src="https://via.placeholder.com/400x600?text=Meme+7" alt="Meme 7">
+      <figcaption>"Overtaking? Never heard of her." - Monaco 2023</figcaption>
+    </figure>
+    <figure>
+      <img src="https://via.placeholder.com/400x600?text=Meme+8" alt="Meme 8">
+      <figcaption>"Tire strategies explained badly" - Silverstone 2020</figcaption>
+    </figure>
   </div>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden fade z-50" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="Enlarged Meme" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
-  </div>
-
-  <script>
-    function openLightbox(src) {
-      const lightbox = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      img.src = src;
-      lightbox.classList.remove('hidden');
-    }
-
-    function closeLightbox() {
-      const lightbox = document.getElementById('lightbox');
-      lightbox.classList.add('hidden');
-    }
-  </script>
-
+  <footer>
+    <p>&copy; 2025 OVERDRIVE: F1 Meme Hub. All rights reserved.</p>
+  </footer>
 </body>
 </html>
