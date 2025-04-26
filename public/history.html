@@ -12,12 +12,15 @@
 </head>
 
 <body>
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="history.html">History</a>
-    <a href="teams.html">Teams</a>
-    <a href="circuits.html">Tracks</a>
-    <a href="quiz2.html">Your Team</a>
+<nav>  
+  <a href="index.html">Home</a>
+  <a href="history.html">History</a>
+  <a href="teams.html">Teams</a></li>
+  <a href="circuits.html">Circuits</a>
+  <a href="quiz.html">Your Team</a>
+  <a href="terms.html">Terms</a>
+  <a href="memes.html">Memes</a>
+
 </nav>
 
   <style>
@@ -56,16 +59,38 @@
     }
     p {
       color: black;
+      font-family: monospace;
+      font-weight: bold;
+      text-align: justify;
     }
     #ref {
       color: white;
     }
+    /* Light Mode */
+    body.light-mode {
+        background-color: white;
+        color: black;
+        background-image: none;
+    }
+    body.light-mode h1, body.light-mode h3 {
+        color: crimson;
+    }
+    body.light-mode div {
+        background: lightgrey;
+        color: black;
+        border: 1px solid black;
+        box-shadow: 5px 5px 2px grey;
+    }
+    body.light-mode div:nth-child(odd) {
+        background: lightgrey;
+    }
+    body.light-mode div:nth-child(even) {
+        background: white;
+    }
   </style>
-
+  <button onclick="toggleMode()">Toggle Dark/Light Mode</button>
   <h1>HISTORY <!--heading--></h1>
-  <p> <!--main information of the page-->
-    Formula 1 is a sport that has been around the globe for over 70 years. It first saw its name in the spotlight at the 1950 British Grand Prix, which marked the start of a new generation of racing. Over the years, this sport has produced thrilling races and exceptionally talented drivers around the globe with over 500 million fans worldwide. 
-  </p>
+ 
 
   <div class="decade-section">
     <h2>1950s</h2>
@@ -149,4 +174,9 @@
     <p id="ref">BLACKBOX.AI. (n.d.). https://www.blackbox.ai/</p>
   </footer>
 </body>
+<script>
+  function toggleMode() {
+    document.body.classList.toggle("light-mode");
+  }
+</script>
 </html>

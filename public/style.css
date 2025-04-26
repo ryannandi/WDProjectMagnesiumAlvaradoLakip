@@ -19,29 +19,25 @@ body {
   margin: 0;
 }
 
-.navbar {
-  background-color: red;
-  overflow: hidden;
-  font-family: Copperplate;
-  background: linear-gradient(45deg, #ff0000, #ff4d4d, #ff8080);
-  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  padding: 10px 20px;
-}
+nav {
+  background: linear-gradient(to right, #ff0000, #1d1c1c); /* Gradient background */
+  overflow: hidden; /* Clear floats */
+  font-family: copperplate;
 
-.navbar a {
-  float: left;
+}
+a {
+  float: left; /* Align links to the left */
   display: block;
   color: white;
   font-family: "Lucida Console", "Courier New", monospace;
   text-align: center;
   padding: 14px 20px;
   text-decoration: none;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
 }
-
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
+a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+  color: yellow; /* Change text color on hover */
 }
 
 .about {

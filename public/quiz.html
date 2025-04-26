@@ -9,22 +9,33 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="style.css">
   
 </head>
 <body>
-  <nav class="navbar">
+ 
+  <nav>  
     <a href="index.html">Home</a>
     <a href="history.html">History</a>
-    <a href="teams.html">Teams</a>
-    <a href="circuits.html">Tracks</a>
-    <a href="quiz2.html">Your Team</a>
-</nav>
+    <a href="teams.html">Teams</a></li>
+    <a href="circuits.html">Circuits</a>
+    <a href="quiz.html">Your Team</a>
+    <a href="terms.html">Terms</a>
+    <a href="memes.html">Memes</a>
+  
+  </nav>
+
   <style>
     body {
-      font-family: Helvetica;
-      background-image: url("https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/heroimgfinal1.png?v=1734971742964");
-      background-size: 100% 100px;
-      background-repeat: no-repeat;
+        font-family: Helvetica;
+        background-image: url("https://i.pinimg.com/736x/42/e2/c6/42e2c6a5736b79c5ba85724a9902fde5.jpg");
+        background-size: cover; /* Ensures the image covers the entire page */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        background-attachment: fixed; /* Keeps the background fixed while scrolling */
+        background-position: center; /* Centers the image */
+        font-family: monospace;
+        background-color: black;
+        color: white;
     }
     p {
       font-weight: bold;
@@ -33,7 +44,7 @@
       text-align: center;
       color: red;
     }
-    /*div {
+    div {
       padding: 10px;
       width: 60%;
       margin: auto;
@@ -62,26 +73,69 @@
       min-width: 100%;
       min-height: 100%;
     }*/
-    .navbar {
-            background: linear-gradient(to right, #ff0000, #1d1c1c); /* Gradient background */
-            overflow: hidden; /* Clear floats */
-            font-family: copperplate;
-        }
-        .navbar a {
-            float: left; /* Align links to the left */
-            display: block;
-            color: white;
-            font-family: "Lucida Console", "Courier New", monospace;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
-        }
-        .navbar a:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
-            color: yellow; /* Change text color on hover */
-        }
+    /* Video Background Styling */
+    #videoBackground {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the video covers the entire screen */
+      z-index: -1; /* Places the video behind all other content */
+    }
+
+    /* General Page Styling */
+    body {
+      font-family: monospace;
+      color: white;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Prevents horizontal scrolling */
+    }
+
+    h1, h3 {
+      text-align: center;
+      color: crimson;
+    }
+
+    div {
+      padding: 10px;
+      width: 60%;
+      margin: auto;
+      border: 1px solid white;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 5px 5px 2px white;
+      background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    }
+
+    button {
+      width: 90%;
+      display: block;
+      margin: auto;
+    }
+    body.light-mode {
+        background-color: white;
+        color: black;
+        background-image: url("https://i.pinimg.com/736x/42/e2/c6/42e2c6a5736b79c5ba85724a9902fde5.jpg");
+    }
+    body.light-mode h1, body.light-mode h3 {
+        color: crimson;
+    }
+    body.light-mode div {
+        background: lightgrey;
+        color: black;
+        border: 1px solid black;
+        box-shadow: 5px 5px 2px grey;
+    }
+    body.light-mode div:nth-child(odd) {
+        background: lightgrey;
+    }
+    body.light-mode div:nth-child(even) {
+        background: white;
+    }
   </style>
+  <button onclick="toggleMode()">Toggle Dark/Light Mode</button>
   <h1>Which Team Are You? (Personality Test)</h1>
   <h3>Team: <span id="score"></span></h3>
   <div>
@@ -137,6 +191,7 @@
   <div>
     <button onclick="scoreQuiz()">Submit</button>
   </div>
+  <br>
   <footer>
     <b>References:</b>
     <p>Formula 1. (2019, March 15). The official home of Formula 1® | F1.com. Formula 1® - the Official F1® Website. https://www.formula1.com/</p>
@@ -175,6 +230,10 @@
         }
 
       document.getElementById("score").textContent = `Your team is ${bestTeam}`;
+    }
+  
+    function toggleMode() {
+      document.body.classList.toggle("light-mode");
     }
   </script>
 

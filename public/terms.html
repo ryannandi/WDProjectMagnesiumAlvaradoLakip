@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms</title>
+    <link rel="stylesheet" href="style.css"> <!-- Ensure this links to your CSS file -->
+    <style>
+        body {
+            font-family: monospace;
+        }
+        .term-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            box-sizing: border-box;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+
+        }
+        .term-container p {
+            text-align: justify;
+            flex: 1;
+            margin-right: 20px;
+        }
+        .term-container img {
+            max-width: 200px;
+            border-radius: 8px;
+        }
+        .term-container figcaption {
+            text-align: center;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        img {
+            border: 5px solid red;
+        }
+        figcaption{
+            color: white;
+        }
+        body.light-mode {
+        background-color: white;
+        color: black;
+        background-image: none;
+    }
+    body.light-mode h1, body.light-mode h3 {
+        color: crimson;
+    }
+    body.light-mode div {
+        background: lightgrey;
+        color: black;
+        border: 1px solid black;
+        box-shadow: 5px 5px 2px grey;
+    }
+    body.light-mode div:nth-child(odd) {
+        background: lightgrey;
+    }
+    body.light-mode div:nth-child(even) {
+        background: white;
+    }
+    body.light-mode p{
+        color: black;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        
+            <a href="index.html">Home</a>
+            <a href="history.html">History</a>
+            <a href="teams.html">Teams</a></li>
+            <a href="circuits.html">Circuits</a>
+            <a href="quiz.html">Your Team</a>
+            <a href="terms.html">Terms</a>
+            <a href="memes.html">Memes</a>
+        
+    </nav>
+    <button onclick="toggleMode()">Toggle Dark/Light Mode</button>
+    <main>
+        <h1>F1 Terms and Conditions</h1>
+
+        <!-- Pit Stop -->
+        <div class="term-container">
+            <p>
+                A pit stop is a crucial part of Formula 1 races where cars stop in the pit lane for refueling, tire changes, or repairs. 
+                Teams aim to complete pit stops as quickly as possible to minimize time lost during the race.
+            </p>
+            <figure>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnMBYLchhp13aL4oGZyI0S0XUqPXr7NOOPaQ&s" alt="Pit Stop">
+                <figcaption>Pit Stop in Action</figcaption>
+            </figure>
+        </div>
+
+        <!-- DRS -->
+        <div class="term-container">
+            <p>
+                DRS (Drag Reduction System) is a mechanism that allows drivers to reduce aerodynamic drag on straights, 
+                increasing speed and enabling overtaking. It can only be used in designated zones during races.
+            </p>
+            <figure>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScFSTYyDDhQVCV_fW3V2iLGWvzDylGuOMJxw&s" alt="DRS System">
+                <figcaption>DRS System in Use</figcaption>
+            </figure>
+        </div>
+
+        <!-- Pole Position -->
+        <div class="term-container">
+            <p>
+                Pole position refers to the first starting position on the grid, awarded to the driver who sets the fastest lap 
+                during the qualifying session. It provides a significant advantage at the start of the race.
+            </p>
+            <figure>
+                <img src="https://cdn.racingnews365.com/_1800x945_crop_center-center_75_none/F1-poleposition-Max-Verstappen-Red-Bull-Racing-parc-ferme-Bahrain-Grand-Prix-2023.jpg?v=1689684059" alt="Pole Position">
+                <figcaption>Pole Position Celebration</figcaption>
+            </figure>
+        </div>
+
+        <!-- Fastest Lap -->
+        <div class="term-container">
+            <p>
+                The fastest lap is the quickest lap time set by a driver during a race. Drivers who achieve the fastest lap 
+                and finish in the top 10 are awarded an additional championship point.
+            </p>
+            <figure>
+                <img src="https://images.squarespace-cdn.com/content/v1/62675319c8f4f22ac1a841cf/612086ca-bfb8-499c-914a-c6af3b1afe62/Screen+Shot+2022-06-15+at+1.52.50+PM.png" alt="Fastest Lap">
+                <figcaption>Driver Setting the Fastest Lap</figcaption>
+            </figure>
+        </div>
+
+        <!-- Penalties -->
+        <div class="term-container">
+            <p>
+                Penalties are imposed on drivers for rule violations, such as exceeding track limits or causing collisions. 
+                Common penalties include time penalties, grid penalties, and drive-through penalties.
+            </p>
+            <figure>
+                <img src="https://i.ytimg.com/vi/6nl8Ovq1XqY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAaDeAE-34I0IQIvEgcbv3l5yOk6w" alt="Penalties">
+                <figcaption>Penalty Notification</figcaption>
+            </figure>
+        </div>
+
+        <!-- Types of Tyres -->
+        <div class="term-container">
+            <p>
+                Formula 1 uses different types of tyres, including soft, medium, and hard compounds for dry conditions, 
+                and intermediate and wet tyres for rainy conditions. Tyre selection is crucial for race strategy.
+            </p>
+            <figure>
+                <img src="https://www.formula1.com/content/dam/fom-website/manual/Misc/UpToSpeed2020Features/GettyImages-1125875618.jpg" alt="Types of Tyres">
+                <figcaption>F1 Tyres on Display</figcaption>
+            </figure>
+        </div>
+    </main>
+    <script>
+        function toggleMode() {
+          document.body.classList.toggle("light-mode");
+        }
+    </script>
+</body>
+</html>
