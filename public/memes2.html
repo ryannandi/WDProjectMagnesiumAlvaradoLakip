@@ -2,139 +2,133 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OVERDRIVE: F1 Meme Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LIGHTS OUT: F1 Memes</title>
   <meta name="author" content="ALVARADO, Miguel Luis S., LAKIP, Ryann Andrea R." />
-  <meta name="revised" content="04/26/2025" />
-  <meta name="description" content="The ultimate hub for Formula 1 memes, laughter, and racing legends." />
-  <link rel="stylesheet" href="style.css">
+  <meta name="revised" content="12/13/2024" />
+  <meta name="description" content="A collection of F1 memes in a Pinterest-style layout." />
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    /* Additional Lightbox Fade */
+    .fade {
+      transition: all 0.3s ease-in-out;
+    }
     body {
+      background-color: #1d1d1d;
+      color: white;
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #121212;
-      color: #e0e0e0;
     }
-
     nav {
-      background: linear-gradient(to right, #ff4500, #222222);
-      padding: 12px;
-      text-align: center;
+      background: linear-gradient(to right, #ff0000, #1d1c1c);
     }
-
     nav a {
-      color: #e0e0e0;
+      color: white;
       text-decoration: none;
-      margin: 0 20px;
+      margin: 0 15px;
       font-size: 18px;
       font-family: "Lucida Console", "Courier New", monospace;
       transition: color 0.3s;
     }
-
     nav a:hover {
-      color: #00ffff;
-    }
-
-    h1 {
-      text-align: center;
-      margin: 25px 0;
-      color: #ff4500;
-      letter-spacing: 2px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 18px;
-      padding: 25px;
-      margin: 0 auto;
-      max-width: 1300px;
-    }
-
-    .gallery figure {
-      margin: 0;
-      text-align: center;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.07);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
-    }
-
-    .gallery figcaption {
-      margin-top: 7px;
-      font-size: 15px;
-      color: #b0b0b0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 12px;
-      background: #222222;
-      color: #e0e0e0;
-      margin-top: 30px;
-      font-size: 14px;
+      color: yellow;
     }
   </style>
 </head>
-<body>
-  <nav>
+<body class="p-6">
+
+  <!-- Navbar -->
+  <nav class="p-4 text-center">
     <a href="index.html">Home</a>
-    <a href="drivers.html">Drivers</a>
+    <a href="history.html">History</a>
     <a href="teams.html">Teams</a>
-    <a href="tracks.html">Tracks</a>
-    <a href="quiz.html">Find Your Team</a>
-    <a href="glossary.html">Glossary</a>
+    <a href="circuits.html">Circuits</a>
+    <a href="quiz.html">Your Team</a>
+    <a href="terms.html">Terms</a>
     <a href="memes.html">Memes</a>
   </nav>
 
-  <h1>F1 Meme Hub</h1>
+  <!-- Title -->
+  <h1 class="text-4xl font-bold text-center my-8 text-crimson" style="color: crimson;">F1 Memes</h1>
 
-  <div class="gallery">
-    <figure>
-      <img src="https://via.placeholder.com/400x600?text=Meme+1" alt="Meme 1">
-      <figcaption>"No grip? No problem." - Bahrain 2022</figcaption>
-    </figure>
-    <figure>
-      <img src="https://via.placeholder.com/400x600?text=Meme+2" alt="Meme 2">
-      <figcaption>"Engine modes: Party time" - Monza 2019</figcaption>
-    </figure>
-    <figure>
-      <img src="https://via.placeholder.com/400x600?text=Meme+3" alt="Meme 3">
-      <figcaption>"Pit stop chaos" - Singapore 2017</figcaption>
-    </figure>
-    <figure>
-      <img src="https://via.placeholder.com/400x600?text=Meme+4" alt="Meme 4">
-      <figcaption>"Team orders incoming" - Austria 2020</figcaption>
-    </figure>
-    <figure>
-      <img src="https://via.placeholder.com/400x600?text=Meme+5" alt="Meme 5">
-      <figcaption>"Weather forecast: 100% drama" - Spa 2021</figcaption>
-    </figure>
-    <figure>
-      <img src="https://via.placeholder.com/400x600?text=Meme+6" alt="Meme 6">
-      <figcaption>"Post-race interviews got me like..." - Abu Dhabi 2022</figcaption>
-    </figure>
-    <figure>
-      <img src="https://via.placeholder.com/400x600?text=Meme+7" alt="Meme 7">
-      <figcaption>"Overtaking? Never heard of her." - Monaco 2023</figcaption>
-    </figure>
-    <figure>
-      <img src="https://via.placeholder.com/400x600?text=Meme+8" alt="Meme 8">
-      <figcaption>"Tire strategies explained badly" - Silverstone 2020</figcaption>
-    </figure>
+  <!-- Meme Gallery -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+    <div class="cursor-pointer text-center" onclick="openLightbox('https://i.kym-cdn.com/entries/icons/mobile/000/032/194/kubica.jpg', '\"GIGAKUBICA\" - 2019')">
+      <img src="https://i.kym-cdn.com/entries/icons/mobile/000/032/194/kubica.jpg" alt="Meme 1" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <figcaption class="mt-2 text-gray-300 text-sm">"GIGAKUBICA" - 2019</figcaption>
+    </div>
+
+    <div class="cursor-pointer text-center" onclick="openLightbox('https://i.dailymail.co.uk/1s/2023/07/03/02/72776769-12257251-Aussie_F1_star_Oscar_Piastri-m-25_1688347547722.jpg', '\"DRS zones be like...\" - June 2020')">
+      <img src="https://i.dailymail.co.uk/1s/2023/07/03/02/72776769-12257251-Aussie_F1_star_Oscar_Piastri-m-25_1688347547722.jpg" alt="Meme 2" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <figcaption class="mt-2 text-gray-300 text-sm">"DRS zones be like..." - June 2020</figcaption>
+    </div>
+
+    <div class="cursor-pointer text-center" onclick="openLightbox('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQK5r0ULpRvP9NkecqB-SbZlhs3iBayskdXw&s', '\"Ferrari strategy strikes again\" - July 2022')">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQK5r0ULpRvP9NkecqB-SbZlhs3iBayskdXw&s" alt="Meme 3" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <figcaption class="mt-2 text-gray-300 text-sm">"Ferrari strategy strikes again" - July 2022</figcaption>
+    </div>
+
+    <div class="cursor-pointer text-center" onclick="openLightbox('https://i.ytimg.com/vi/_IRxnHtLD-E/hq720.jpg', '\"When the safety car ruins your lead\" - May 2019')">
+      <img src="https://i.ytimg.com/vi/_IRxnHtLD-E/hq720.jpg" alt="Meme 4" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <figcaption class="mt-2 text-gray-300 text-sm">"When the safety car ruins your lead" - May 2019</figcaption>
+    </div>
+
+    <div class="cursor-pointer text-center" onclick="openLightbox('meme5.jpg', '\"Max vs Lewis 2021 vibes\" - December 2021')">
+      <img src="meme5.jpg" alt="Meme 5" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <figcaption class="mt-2 text-gray-300 text-sm">"Max vs Lewis 2021 vibes" - December 2021</figcaption>
+    </div>
+
+    <div class="cursor-pointer text-center" onclick="openLightbox('meme6.jpg', '\"Pit crew perfection\" - August 2020')">
+      <img src="meme6.jpg" alt="Meme 6" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <figcaption class="mt-2 text-gray-300 text-sm">"Pit crew perfection" - August 2020</figcaption>
+    </div>
+
+    <div class="cursor-pointer text-center" onclick="openLightbox('meme7.jpg', '\"When you forget to brake\" - October 2018')">
+      <img src="meme7.jpg" alt="Meme 7" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <figcaption class="mt-2 text-gray-300 text-sm">"When you forget to brake" - October 2018</figcaption>
+    </div>
+
+    <div class="cursor-pointer text-center" onclick="openLightbox('meme8.jpg', '\"Team radio gold\" - April 2023')">
+      <img src="meme8.jpg" alt="Meme 8" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <figcaption class="mt-2 text-gray-300 text-sm">"Team radio gold" - April 2023</figcaption>
+    </div>
+
+    <div class="cursor-pointer text-center" onclick="openLightbox('meme9.jpg', '\"When the rain changes everything\" - September 2022')">
+      <img src="meme9.jpg" alt="Meme 9" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <figcaption class="mt-2 text-gray-300 text-sm">"When the rain changes everything" - September 2022</figcaption>
+    </div>
+
+    <div class="cursor-pointer text-center" onclick="openLightbox('meme10.jpg', '\"The podium celebrations we love\" - November 2020')">
+      <img src="meme10.jpg" alt="Meme 10" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <figcaption class="mt-2 text-gray-300 text-sm">"The podium celebrations we love" - November 2020</figcaption>
+    </div>
   </div>
 
-  <footer>
-    <p>&copy; 2025 OVERDRIVE: F1 Meme Hub. All rights reserved.</p>
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center hidden fade z-50 p-4" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Enlarged Meme" class="max-h-[80%] max-w-[90%] rounded-lg shadow-lg">
+    <p id="lightbox-caption" class="text-gray-300 text-center mt-4"></p>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center p-4 mt-10 bg-[#1d1c1c] text-white">
+    <p>&copy; 2025 LIGHTS OUT: F1 Memes. All rights reserved.</p>
   </footer>
+
+  <script>
+    function openLightbox(src, caption) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      const cap = document.getElementById('lightbox-caption');
+      img.src = src;
+      cap.innerText = caption;
+      lightbox.classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.add('hidden');
+    }
+  </script>
+
 </body>
 </html>
