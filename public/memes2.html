@@ -8,6 +8,7 @@
   <meta name="revised" content="12/13/2024" />
   <meta name="description" content="A collection of F1 memes in a Pinterest-style layout." />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="style.css" rel="stylesheet" type="text/css" />
   <style>
     /* Additional Lightbox Fade */
     .fade {
@@ -18,19 +19,22 @@
       color: white;
       font-family: Arial, sans-serif;
     }
-    nav {
-      background: linear-gradient(to right, #ff0000, #1d1c1c);
+    .meme-gallery img {
+      width: 100%;
+      aspect-ratio: 1 / 1; /* Ensures images maintain a square aspect ratio */
+      object-fit: cover; /* Ensures the image fills the container without distortion */
+      border: 5px solid; /* Adds a border */
+      border-image: linear-gradient(to bottom, red, black) 1; /* Gradient border */
+      border-radius: 10px; /* Rounds the corners */
     }
-    nav a {
+    .meme-caption {
+      background-color: red;
       color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-size: 18px;
-      font-family: "Lucida Console", "Courier New", monospace;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: yellow;
+      font-weight: bold;
+      text-align: center;
+      padding: 5px;
+      border-radius: 5px;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -51,55 +55,55 @@
   <h1 class="text-4xl font-bold text-center my-8 text-crimson" style="color: crimson;">F1 Memes</h1>
 
   <!-- Meme Gallery -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto meme-gallery">
     <div class="cursor-pointer text-center" onclick="openLightbox('https://i.kym-cdn.com/entries/icons/mobile/000/032/194/kubica.jpg', '\"GIGAKUBICA\" - 2019')">
       <img src="https://i.kym-cdn.com/entries/icons/mobile/000/032/194/kubica.jpg" alt="Meme 1" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <figcaption class="mt-2 text-gray-300 text-sm">"GIGAKUBICA" - 2019</figcaption>
+      <div class="meme-caption">"GIGAKUBICA" - 2019</div>
     </div>
 
     <div class="cursor-pointer text-center" onclick="openLightbox('https://i.dailymail.co.uk/1s/2023/07/03/02/72776769-12257251-Aussie_F1_star_Oscar_Piastri-m-25_1688347547722.jpg', '\"DRS zones be like...\" - June 2020')">
       <img src="https://i.dailymail.co.uk/1s/2023/07/03/02/72776769-12257251-Aussie_F1_star_Oscar_Piastri-m-25_1688347547722.jpg" alt="Meme 2" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <figcaption class="mt-2 text-gray-300 text-sm">"DRS zones be like..." - June 2020</figcaption>
+      <div class="meme-caption">"Oscar Yikes" - 2023</div>
     </div>
 
     <div class="cursor-pointer text-center" onclick="openLightbox('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQK5r0ULpRvP9NkecqB-SbZlhs3iBayskdXw&s', '\"Ferrari strategy strikes again\" - July 2022')">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQK5r0ULpRvP9NkecqB-SbZlhs3iBayskdXw&s" alt="Meme 3" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <figcaption class="mt-2 text-gray-300 text-sm">"Ferrari strategy strikes again" - July 2022</figcaption>
+      <div class="meme-caption">"Ferrari strategy strikes again" - 2025</div>
     </div>
 
     <div class="cursor-pointer text-center" onclick="openLightbox('https://i.ytimg.com/vi/_IRxnHtLD-E/hq720.jpg', '\"When the safety car ruins your lead\" - May 2019')">
       <img src="https://i.ytimg.com/vi/_IRxnHtLD-E/hq720.jpg" alt="Meme 4" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <figcaption class="mt-2 text-gray-300 text-sm">"When the safety car ruins your lead" - May 2019</figcaption>
+      <div class="meme-caption">"Red Bull gives you wings" - 2005 - present</div>
     </div>
 
     <div class="cursor-pointer text-center" onclick="openLightbox('meme5.jpg', '\"Max vs Lewis 2021 vibes\" - December 2021')">
-      <img src="meme5.jpg" alt="Meme 5" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <figcaption class="mt-2 text-gray-300 text-sm">"Max vs Lewis 2021 vibes" - December 2021</figcaption>
+      <img src="https://i.ytimg.com/vi/835O98ei3-Y/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLChkeHGhoxJNq-K382LiGFhCzWN7A" alt="Meme 5" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <div class="meme-caption">"Bwoah" - 2001 - 2021</div>
     </div>
 
     <div class="cursor-pointer text-center" onclick="openLightbox('meme6.jpg', '\"Pit crew perfection\" - August 2020')">
-      <img src="meme6.jpg" alt="Meme 6" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <figcaption class="mt-2 text-gray-300 text-sm">"Pit crew perfection" - August 2020</figcaption>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcEiSsmENEwGPllT-wlyK0QnMkAZpUjwHbTg&s" alt="Meme 6" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <div class="meme-caption">"Alonso Rookie of the year" - 2024 - present</div>
     </div>
 
     <div class="cursor-pointer text-center" onclick="openLightbox('meme7.jpg', '\"When you forget to brake\" - October 2018')">
-      <img src="meme7.jpg" alt="Meme 7" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <figcaption class="mt-2 text-gray-300 text-sm">"When you forget to brake" - October 2018</figcaption>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUX5LbhQGfmjYZQwfhROu3hzK96M5LSIzC0w&s" alt="Meme 7" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <div class="meme-caption">"Lewis Needs Help" - December 2018</div>
     </div>
 
     <div class="cursor-pointer text-center" onclick="openLightbox('meme8.jpg', '\"Team radio gold\" - April 2023')">
-      <img src="meme8.jpg" alt="Meme 8" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <figcaption class="mt-2 text-gray-300 text-sm">"Team radio gold" - April 2023</figcaption>
+      <img src="https://i.ytimg.com/vi/t1rrBZ6_AGQ/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AHUBoAC1AOKAgwIABABGH8gEygVMA8=&rs=AOn4CLBZJZrHuzuaAXwfOCwcff1iAVZrRw" alt="Meme 8" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <div class="meme-caption">"DUDUDUDU MAX VERSTAPPEN" - 2023 - PRESENT</div>
     </div>
 
     <div class="cursor-pointer text-center" onclick="openLightbox('meme9.jpg', '\"When the rain changes everything\" - September 2022')">
-      <img src="meme9.jpg" alt="Meme 9" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <figcaption class="mt-2 text-gray-300 text-sm">"When the rain changes everything" - September 2022</figcaption>
+      <img src="https://i.ytimg.com/vi/mGkrbzJZCoE/maxresdefault.jpg" alt="Meme 9" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <div class="meme-caption">"Smooth operator" - 2019 - present</div>
     </div>
 
     <div class="cursor-pointer text-center" onclick="openLightbox('meme10.jpg', '\"The podium celebrations we love\" - November 2020')">
-      <img src="meme10.jpg" alt="Meme 10" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
-      <figcaption class="mt-2 text-gray-300 text-sm">"The podium celebrations we love" - November 2020</figcaption>
+      <img src="https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2020/04/02212923/EUnzkBTXYAMWNKC.jpg" alt="Meme 10" class="rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      <div class="meme-caption">Baldo Norris - 2020</div>
     </div>
   </div>
 
