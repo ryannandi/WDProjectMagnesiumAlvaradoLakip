@@ -1,0 +1,306 @@
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+      <link rel="manifest" href="site.webmanifest">
+      <link rel="stylesheet" href="public/style.css">
+      <style>
+        body {
+          color: white;
+        }
+      </style>
+  </head>
+  
+<body>
+  <nav class="navbar">
+    <a href="public/index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="teams.html">Teams</a>
+    <a href="circuits.html">Tracks</a>
+    <a href="quiz2.html">Your Team</a> <!-- creates a link to the quiz page-->
+    <a href="profiles.html" id="navbar-profile-link">
+      <img id="navbar-profile-pic" src="https://via.placeholder.com/40" alt="Profile">
+    </a>
+  </nav>
+<title>LIGHTS OUT: Formula 1 for Newbies</title>
+<h1>Create F1 Profile</h1>
+
+<form id="profile-form" enctype="multipart/form-data">
+  <div class="profile-card">
+    <div>
+      <img id="profile-pic-preview" src="https://via.placeholder.com/100" alt="Profile Picture">
+      <input type="file" id="profile-pic" name="profilePic" accept="image/*" onchange="previewImage(event)">
+    </div>
+    <div>
+      <div class="form-group">
+        <label>Username:</label><br>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label>First Name:</label><br>
+        <input type="text" id="first-name" name="firstName" required>
+      </div>
+      <div class="form-group">
+        <label>Last Name:</label><br>
+        <input type="text" id="last-name" name="lastName" required>
+      </div>
+      <div class="form-group">
+        <label>Pronouns:</label><br>
+        <input type="text" id="pronouns" name="pronouns">
+      </div>
+
+      <!-- TEAM SECTION -->
+      <div class="form-group">
+        <label>Team:</label><br>
+        <input type="text" id="team" name="team" value="{{team}}" placeholder="Take the quiz to find out!" disabled>
+        <a href="/quiz"><button type="button">Take the Quiz</button></a>
+      </div>
+
+      <div class="form-group">
+        <label>Country:</label><br>
+        <select id="country" name="country" onchange="updateCountryFlag()">
+          <option value="US" data-flag="🇺🇸">United States</option>
+          <option value="GB" data-flag="🇬🇧">United Kingdom</option>
+          <option value="FR" data-flag="🇫🇷">France</option>
+          <option value="DE" data-flag="🇩🇪">Germany</option>
+          <option value="IT" data-flag="🇮🇹">Italy</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Bio:</label><br>
+        <textarea id="bio" name="bio" rows="3" cols="30" placeholder="Short bio..."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="reset">Cancel</button>
+        <button type="submit">Save</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<h2>Profile Preview</h2>
+<div class="profile-card" id="profile-preview" style="display:none;">
+  <div>
+    <img id="preview-pic" src="https://via.placeholder.com/100" alt="Preview Picture">
+  </div>
+  <div>
+    <p><strong id="preview-username"></strong> (<span id="preview-pronouns"></span>)</p>
+    <p><span id="preview-name"></span></p>
+    <p><strong>Team:</strong> <span id="preview-team">{{team}}</span></p>
+    <p><span id="preview-country-flag"></span> <strong id="preview-country-code"></strong></p>
+    <p id="preview-bio"></p>
+  </div>
+</div>
+
+<h2>Profile Controls</h2>
+<div class="form-group">
+  <label for="profile-selector">Switch Profile:</label>
+  <select id="profile-selector" onchange="loadSelectedProfile()"></select>
+</div>
+<div class="form-actions">
+  <button onclick="deleteCurrentProfile()">Delete Selected Profile</button>
+</div>
+
+<h2>All Profiles</h2>
+<ul id="all-profiles-list"></ul>
+
+<script>
+  function previewImage(event) {
+        const reader = new FileReader();
+        reader.onload = function () {
+          document.getElementById('profile-pic-preview').src = reader.result;
+          document.getElementById('navbar-profile-pic').src = reader.result; 
+        };
+        reader.readAsDataURL(event.target.files[0]);
+      }
+
+  /*function previewImage(event) {
+    const reader = new FileReader();
+    reader.onload = function () {
+      document.getElementById('profile-pic-preview').src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  }*/
+
+  function updateCountryFlag() {
+    const select = document.getElementById('country');
+    const selectedOption = select.options[select.selectedIndex];
+    const flag = selectedOption.getAttribute('data-flag');
+    const code = selectedOption.value;
+
+    document.getElementById('preview-country-flag').textContent = flag;
+    document.getElementById('preview-country-code').textContent = code;
+  }
+
+  document.getElementById('profile-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('profile-preview').style.display = 'flex';
+
+    document.getElementById('preview-username').textContent = document.getElementById('username').value;
+    document.getElementById('preview-name').textContent = `${document.getElementById('first-name').value} ${document.getElementById('last-name').value}`;
+    document.getElementById('preview-pronouns').textContent = document.getElementById('pronouns').value;
+    document.getElementById('preview-bio').textContent = document.getElementById('bio').value;
+
+    const profilePic = document.getElementById('profile-pic-preview').src;
+    document.getElementById('preview-pic').src = profilePic;
+
+    // Static for now — can be dynamically updated if needed
+    /*document.getElementById('preview-team').textContent = document.getElementById('team').value || "Not selected";
+    
+    updateCountryFlag();*/
+    document.getElementById('preview-team').textContent =
+          document.getElementById('team').value || "Not selected";
+
+        // Update country display
+        updateCountryFlag();
+  });
+
+  let profiles = JSON.parse(localStorage.getItem('f1Profiles')) || [];
+  let selectedProfileIndex = 0;
+
+  function previewImage(event) {
+    const reader = new FileReader();
+    reader.onload = function () {
+      document.getElementById('profile-pic-preview').src = reader.result;
+      document.getElementById('navbar-profile-pic').src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+  function updateCountryFlag() {
+    const select = document.getElementById('country');
+    const selectedOption = select.options[select.selectedIndex];
+    const flag = selectedOption.getAttribute('data-flag');
+    const code = selectedOption.value;
+    document.getElementById('preview-country-flag').textContent = flag;
+    document.getElementById('preview-country-code').textContent = code;
+  }
+
+  function updateProfileSelector() {
+    const selector = document.getElementById('profile-selector');
+    selector.innerHTML = '';
+    profiles.forEach((profile, index) => {
+      const option = document.createElement('option');
+      option.value = index;
+      option.textContent = profile.username;
+      if (index === selectedProfileIndex) option.selected = true;
+      selector.appendChild(option);
+    });
+  }
+
+  function loadSelectedProfile() {
+    selectedProfileIndex = parseInt(document.getElementById('profile-selector').value);
+    const profile = profiles[selectedProfileIndex];
+
+    document.getElementById('username').value = profile.username;
+    document.getElementById('first-name').value = profile.firstName;
+    document.getElementById('last-name').value = profile.lastName;
+    document.getElementById('pronouns').value = profile.pronouns;
+    document.getElementById('team').value = profile.team;
+    document.getElementById('country').value = profile.country;
+    document.getElementById('bio').value = profile.bio;
+    document.getElementById('profile-pic-preview').src = profile.profilePic;
+    updateCountryFlag();
+  }
+
+  function deleteCurrentProfile() {
+    if (profiles.length === 0) return;
+    profiles.splice(selectedProfileIndex, 1);
+    if (selectedProfileIndex >= profiles.length) selectedProfileIndex = profiles.length - 1;
+    localStorage.setItem('f1Profiles', JSON.stringify(profiles));
+    updateProfileSelector();
+    loadSelectedProfile();
+    renderAllProfiles();
+  }
+
+  document.getElementById('profile-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const profile = {
+      username: document.getElementById('username').value,
+      firstName: document.getElementById('first-name').value,
+      lastName: document.getElementById('last-name').value,
+      pronouns: document.getElementById('pronouns').value,
+      team: document.getElementById('team').value || "Not selected",
+      country: document.getElementById('country').value,
+      bio: document.getElementById('bio').value,
+      profilePic: document.getElementById('profile-pic-preview').src
+    };
+
+    // If updating, overwrite; if new, push
+    if (profiles[selectedProfileIndex]) {
+      profiles[selectedProfileIndex] = profile;
+    } else {
+      profiles.push(profile);
+      selectedProfileIndex = profiles.length - 1;
+    }
+
+    localStorage.setItem('f1Profiles', JSON.stringify(profiles));
+    updateProfileSelector();
+    renderAllProfiles();
+
+    // Update preview
+    document.getElementById('profile-preview').style.display = 'flex';
+    document.getElementById('preview-username').textContent = profile.username;
+    document.getElementById('preview-name').textContent = `${profile.firstName} ${profile.lastName}`;
+    document.getElementById('preview-pronouns').textContent = profile.pronouns;
+    document.getElementById('preview-bio').textContent = profile.bio;
+    document.getElementById('preview-pic').src = profile.profilePic;
+    document.getElementById('preview-team').textContent = profile.team;
+    updateCountryFlag();
+  });
+
+  function renderAllProfiles() {
+    const list = document.getElementById('all-profiles-list');
+    list.innerHTML = '';
+    profiles.forEach((profile, index) => {
+      const li = document.createElement('li');
+      li.textContent = `${profile.username} (${profile.firstName} ${profile.lastName}) - ${profile.team}`;
+      list.appendChild(li);
+    });
+  }
+
+  // Load from localStorage on page load
+  window.onload = function () {
+    updateProfileSelector();
+    if (profiles.length > 0) {
+      loadSelectedProfile();
+    }
+    renderAllProfiles();
+  };
+
+  // Save profile index when clicking nav avatar
+  document.getElementById('navbar-profile-link').addEventListener('click', () => {
+    localStorage.setItem('selectedProfileIndex', selectedProfileIndex);
+  });
+</script>
+
+<style>
+  .profile-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  .profile-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #888;
+  }
+  .form-group {
+    margin-bottom: 10px;
+  }
+  .form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+</style>
+</body>
+</html>
