@@ -104,64 +104,16 @@
 </div>
 <div class="form-actions">
   <button onclick="deleteCurrentProfile()">Delete Selected Profile</button>
+  <button onclick="startNewProfile()">New Profile</button>
 </div>
+
 
 <h2>All Profiles</h2>
 <ul id="all-profiles-list"></ul>
 
 <script>
-  function previewImage(event) {
-        const reader = new FileReader();
-        reader.onload = function () {
-          document.getElementById('profile-pic-preview').src = reader.result;
-          document.getElementById('navbar-profile-pic').src = reader.result; 
-        };
-        reader.readAsDataURL(event.target.files[0]);
-      }
-
-  /*function previewImage(event) {
-    const reader = new FileReader();
-    reader.onload = function () {
-      document.getElementById('profile-pic-preview').src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  }*/
-
-  function updateCountryFlag() {
-    const select = document.getElementById('country');
-    const selectedOption = select.options[select.selectedIndex];
-    const flag = selectedOption.getAttribute('data-flag');
-    const code = selectedOption.value;
-
-    document.getElementById('preview-country-flag').textContent = flag;
-    document.getElementById('preview-country-code').textContent = code;
-  }
-
-  document.getElementById('profile-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    document.getElementById('profile-preview').style.display = 'flex';
-
-    document.getElementById('preview-username').textContent = document.getElementById('username').value;
-    document.getElementById('preview-name').textContent = `${document.getElementById('first-name').value} ${document.getElementById('last-name').value}`;
-    document.getElementById('preview-pronouns').textContent = document.getElementById('pronouns').value;
-    document.getElementById('preview-bio').textContent = document.getElementById('bio').value;
-
-    const profilePic = document.getElementById('profile-pic-preview').src;
-    document.getElementById('preview-pic').src = profilePic;
-
-    // Static for now — can be dynamically updated if needed
-    /*document.getElementById('preview-team').textContent = document.getElementById('team').value || "Not selected";
-    
-    updateCountryFlag();*/
-    document.getElementById('preview-team').textContent =
-          document.getElementById('team').value || "Not selected";
-
-        // Update country display
-        updateCountryFlag();
-  });
-
   let profiles = JSON.parse(localStorage.getItem('f1Profiles')) || [];
-  let selectedProfileIndex = 0;
+  let selectedProfileIndex = -1;
 
   function previewImage(event) {
     const reader = new FileReader();
@@ -180,6 +132,43 @@
     document.getElementById('preview-country-flag').textContent = flag;
     document.getElementById('preview-country-code').textContent = code;
   }
+
+  document.getElementById('profile-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const profile = {
+      username: document.getElementById('username').value,
+      firstName: document.getElementById('first-name').value,
+      lastName: document.getElementById('last-name').value,
+      pronouns: document.getElementById('pronouns').value,
+      team: document.getElementById('team').value || "Not selected",
+      country: document.getElementById('country').value,
+      bio: document.getElementById('bio').value,
+      profilePic: document.getElementById('profile-pic-preview').src
+    };
+
+    if (selectedProfileIndex !== -1 && profiles[selectedProfileIndex]) {
+      profiles[selectedProfileIndex] = profile;
+    } else {
+      profiles.push(profile);
+      selectedProfileIndex = profiles.length - 1;
+    }
+
+    localStorage.setItem('f1Profiles', JSON.stringify(profiles));
+    updateProfileSelector();
+    renderAllProfiles();
+    loadSelectedProfile();
+
+    // Update preview
+    document.getElementById('profile-preview').style.display = 'flex';
+    document.getElementById('preview-username').textContent = profile.username;
+    document.getElementById('preview-name').textContent = `${profile.firstName} ${profile.lastName}`;
+    document.getElementById('preview-pronouns').textContent = profile.pronouns;
+    document.getElementById('preview-bio').textContent = profile.bio;
+    document.getElementById('preview-pic').src = profile.profilePic;
+    document.getElementById('preview-team').textContent = profile.team;
+    updateCountryFlag();
+  });
 
   function updateProfileSelector() {
     const selector = document.getElementById('profile-selector');
@@ -205,54 +194,37 @@
     document.getElementById('country').value = profile.country;
     document.getElementById('bio').value = profile.bio;
     document.getElementById('profile-pic-preview').src = profile.profilePic;
+    document.getElementById('navbar-profile-pic').src = profile.profilePic;
     updateCountryFlag();
   }
 
   function deleteCurrentProfile() {
-    if (profiles.length === 0) return;
+    if (profiles.length === 0 || selectedProfileIndex < 0) return;
+    if (!confirm("Are you sure you want to delete this profile?")) return;
+
     profiles.splice(selectedProfileIndex, 1);
-    if (selectedProfileIndex >= profiles.length) selectedProfileIndex = profiles.length - 1;
+    selectedProfileIndex = profiles.length > 0 ? 0 : -1;
+
     localStorage.setItem('f1Profiles', JSON.stringify(profiles));
     updateProfileSelector();
-    loadSelectedProfile();
     renderAllProfiles();
+
+    if (selectedProfileIndex >= 0) {
+      loadSelectedProfile();
+    } else {
+      startNewProfile();
+    }
   }
 
-  document.getElementById('profile-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const profile = {
-      username: document.getElementById('username').value,
-      firstName: document.getElementById('first-name').value,
-      lastName: document.getElementById('last-name').value,
-      pronouns: document.getElementById('pronouns').value,
-      team: document.getElementById('team').value || "Not selected",
-      country: document.getElementById('country').value,
-      bio: document.getElementById('bio').value,
-      profilePic: document.getElementById('profile-pic-preview').src
-    };
-
-    // If updating, overwrite; if new, push
-    if (profiles[selectedProfileIndex]) {
-      profiles[selectedProfileIndex] = profile;
-    } else {
-      profiles.push(profile);
-      selectedProfileIndex = profiles.length - 1;
-    }
-
-    localStorage.setItem('f1Profiles', JSON.stringify(profiles));
-    updateProfileSelector();
-    renderAllProfiles();
-
-    // Update preview
-    document.getElementById('profile-preview').style.display = 'flex';
-    document.getElementById('preview-username').textContent = profile.username;
-    document.getElementById('preview-name').textContent = `${profile.firstName} ${profile.lastName}`;
-    document.getElementById('preview-pronouns').textContent = profile.pronouns;
-    document.getElementById('preview-bio').textContent = profile.bio;
-    document.getElementById('preview-pic').src = profile.profilePic;
-    document.getElementById('preview-team').textContent = profile.team;
-    updateCountryFlag();
-  });
+  function startNewProfile() {
+    document.getElementById('profile-form').reset();
+    document.getElementById('profile-pic-preview').src = "https://via.placeholder.com/100";
+    document.getElementById('navbar-profile-pic').src = "https://via.placeholder.com/40";
+    document.getElementById('preview-country-flag').textContent = "";
+    document.getElementById('preview-country-code').textContent = "";
+    selectedProfileIndex = -1;
+    document.getElementById('profile-selector').value = "";
+  }
 
   function renderAllProfiles() {
     const list = document.getElementById('all-profiles-list');
@@ -264,16 +236,20 @@
     });
   }
 
-  // Load from localStorage on page load
   window.onload = function () {
+    profiles = JSON.parse(localStorage.getItem('f1Profiles')) || [];
+    selectedProfileIndex = parseInt(localStorage.getItem('selectedProfileIndex')) || -1;
+
     updateProfileSelector();
-    if (profiles.length > 0) {
-      loadSelectedProfile();
-    }
     renderAllProfiles();
+
+    if (profiles.length > 0 && selectedProfileIndex >= 0 && selectedProfileIndex < profiles.length) {
+      loadSelectedProfile();
+    } else {
+      startNewProfile();
+    }
   };
 
-  // Save profile index when clicking nav avatar
   document.getElementById('navbar-profile-link').addEventListener('click', () => {
     localStorage.setItem('selectedProfileIndex', selectedProfileIndex);
   });
@@ -301,6 +277,16 @@
     gap: 10px;
     margin-top: 10px;
   }
+  .navbar img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid white;
+  vertical-align: middle;
+}
+
+  
 </style>
 </body>
 </html>
