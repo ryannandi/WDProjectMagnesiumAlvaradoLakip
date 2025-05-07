@@ -1,103 +1,50 @@
+// Import required modules
 const express = require('express');
-const multer = require('multer');
+
+const bodyParser = require('body-parser');
 const path = require('path');
-const exphbs = require('express-handlebars');
-const fs = require('fs')
+
+// Initialize the Express application
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Set up Handlebars
-app.engine('hbs', exphbs({ extname: '.hbs' }));
+// Set up Handlebars as the templating engine
+const { create } = require('express-handlebars'); // Updated import for express-handlebars
+const hbs = create({ extname: '.hbs' }); // Create an instance of express-handlebars
+app.engine('hbs', hbs.engine); // Use the engine instance
 app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'views')); // Ensure views directory is set
 
-// Middleware
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve uploaded files
+// Middleware to parse form data
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// Set up multer for file uploads
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads/');
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname)); // Append timestamp to filename
-    }
-});
-const upload = multer({ storage: storage });
-
-// Render the user form
-app.get('/userform', (req, res) => {
-    res.render('userform');
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files (CSS, JS, etc.)
+// Route to render the profile page as the default page
+app.get('/', (req, res) => {
+    console.log('Rendering profiles.hbs');
+    res.render('profiles', { user: null }); // Pass user data if available
 });
 
-app.post('/save', (req, res) => { //creates a POST for /save
-    const {taskNumber, taskDescription, taskDate, taskStatus, } = req.body; //extracts these from req.body
-  
-    const filePath = path.join(__dirname, 'data', 'data.json'); //creates a path to todolst.json
-    const todoList = JSON.parse(fs.readFileSync(filePath)); //creates a todoList
-  
-    profile[profileNumber] = { //object for todolist.JSON 
-      username: firstName,
-      taskDate,
-      taskStatus: taskStatus
-  
-    }
-    fs.writeFileSync(filePath, JSON.stringify(todoList, null, 2)); //writes new data to JSON
-    res.redirect('/'); //redirects client back to home page
-  })
-  
-// Handle form submission
-app.post('/submit', upload.single('profilePicture'), (req, res) => {
-    const userData = {
+// Route to handle form submission
+app.post('/addProfile', (req, res) => {
+    // Here you would handle the profile data submission
+    const userProfile = {
         username: req.body.username,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         pronouns: req.body.pronouns,
-        bio: req.body.bio,
+        team: req.body.team,
         country: req.body.country,
-        profilePicture: req.file ? `/uploads/${req.file.filename}` : null
-    };
-    
-    // Render the main page with user data
-    res.render('main', { user: userData });
-});
-
-
-// Handle profile form submission and render profile preview
-app.post('/addProfile', upload.single('profilePicture'), (req, res) => {
-    const { username, firstName, lastName, pronouns, team, country, bio } = req.body;
-
-    const profilePicture = req.file ? `/uploads/${req.file.filename}` : null;
-
-    const newProfile = {
-        username,
-        firstName,
-        lastName,
-        pronouns,
-        team: team || "Not selected",
-        country,
-        bio,
-        profilePicture
+        bio: req.body.bio,
+        profilePicture: req.file ? req.file.path : null // Handle file upload
     };
 
-    // Save the profile to data.json
-    const filePath = path.join(__dirname, 'data', 'data.json');
-    let profiles = [];
-    if (fs.existsSync(filePath)) {
-        try {
-            const fileData = fs.readFileSync(filePath, 'utf8');
-            profiles = JSON.parse(fileData || '[]'); // Handle empty file
-        } catch (error) {
-            console.error('Error parsing JSON:', error);
-            profiles = [];
-        }
-    }
-    profiles.push(newProfile);
-    fs.writeFileSync(filePath, JSON.stringify(profiles, null, 2));
-
-    // Render the profile preview
-    res.render('profiles', { user: newProfile });
-    
-    app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+    // Render the profile page with the submitted user data
+    res.render('profiles', { user: userProfile });
 });
-   
+
 // Start the server
+const PORT = process.env.PORT || 3006;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
