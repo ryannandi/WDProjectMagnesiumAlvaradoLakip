@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "id": 1746617501553,
+    "username": "orbitor",
+    "firstName": "miggy",
+    "lastName": "alvarado",
+    "pronouns": "he/him",
+    "team": "mclaren",
+    "country": "britain",
+    "bio": "hello im miggy"
+  },
+  {
+    "id": 1746617661340,
+    "username": "orbitor",
+    "firstName": "Miggy",
+    "lastName": "Alvarado",
+    "pronouns": "he/him",
+    "team": "MCLAREN",
+    "country": "BRITAIN",
+    "bio": "HI IM MIGGY"
+  },
+  {
+    "id": 1746618460489,
+    "username": "Orbitor",
+    "firstName": "Miggy ",
+    "lastName": "ALVARADO",
+    "pronouns": "He/him",
+    "team": "Mclaren",
+    "country": "philippines",
+    "bio": "lol"
+  }
+]

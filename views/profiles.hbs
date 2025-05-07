@@ -5,13 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profiles</title>
   <link rel="stylesheet" href="/style.css"> <!-- Link to your CSS file -->
+  <style>
+    body {
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 20px;
+      border: 1px solid white;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #1d1d1d;
+    }
+    .profile-actions {
+      margin-top: 10px;
+    }
+    .profile-actions a, .profile-actions button {
+      margin-right: 10px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      text-decoration: none;
+      color: white;
+      background-color: #ff0000;
+      cursor: pointer;
+    }
+    .profile-actions a:hover, .profile-actions button:hover {
+      background-color: #cc0000;
+    }
+    .profile-info p {
+      margin: 5px 0;
+    }
+    #add-profile {
+      margin-top: 30px;
+    }
+    #add-profile form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #add-profile label {
+      font-weight: bold;
+    }
+    #add-profile input, #add-profile textarea, #add-profile button {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    #add-profile button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    #add-profile button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
   <nav>
-    <a href="/">Home</a>
-    <a href="#add-profile">Add Profile</a>
+    <a href="index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="teams.html">Teams</a>
+    <a href="circuits.html">Circuits</a>
+    <a href="quiz.html">Your Team</a>
+    <a href="terms.html">Terms</a>
+    <a href="memes2.html">Memes</a>
   </nav>
-
+  <hr/>
   <h1>Profiles</h1>
 
   <!-- Display the list of profiles -->
@@ -20,14 +85,19 @@
       <ul>
         {{#each profiles}}
           <li>
-            <h2>{{username}}</h2>
-            <p><strong>First Name:</strong> {{firstName}}</p>
-            <p><strong>Last Name:</strong> {{lastName}}</p>
-            <p><strong>Pronouns:</strong> {{pronouns}}</p>
-            <p><strong>Team:</strong> {{team}}</p>
-            <p><strong>Country:</strong> {{country}}</p>
-            <p><strong>Bio:</strong> {{bio}}</p>
-            <a href="/deleteProfile?id={{id}}" class="delete-button">Delete</a>
+            <div class="profile-info">
+              <p><strong>Username:</strong> {{username}}</p>
+              <p><strong>First Name:</strong> {{firstName}}</p>
+              <p><strong>Last Name:</strong> {{lastName}}</p>
+              <p><strong>Pronouns:</strong> {{pronouns}}</p>
+              <p><strong>Team:</strong> {{team}}</p>
+              <p><strong>Country:</strong> {{country}}</p>
+              <p><strong>Bio:</strong> {{bio}}</p>
+            </div>
+            <div class="profile-actions">
+              <a href="/deleteProfile?id={{id}}" class="delete-button">Delete</a>
+              <button onclick="editProfile({{id}})">Edit</button>
+            </div>
           </li>
         {{/each}}
       </ul>
@@ -36,33 +106,53 @@
     {{/if}}
   </section>
 
-  <!-- Form to add a new profile -->
+  <!-- Form to add or update a profile -->
   <section id="add-profile">
-    <h2>Add a New Profile</h2>
-    <form action="/addProfile" method="POST">
+    <h2 id="form-title">Add a New Profile</h2>
+    <form action="/addProfile" method="POST" id="profile-form">
+      <input type="hidden" id="profile-id" name="id">
       <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required><br>
+      <input type="text" id="username" name="username" required>
 
       <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" name="firstName" required><br>
+      <input type="text" id="firstName" name="firstName" required>
 
       <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" name="lastName" required><br>
+      <input type="text" id="lastName" name="lastName" required>
 
       <label for="pronouns">Pronouns:</label>
-      <input type="text" id="pronouns" name="pronouns"><br>
+      <input type="text" id="pronouns" name="pronouns">
 
       <label for="team">Team:</label>
-      <input type="text" id="team" name="team"><br>
+      <input type="text" id="team" name="team">
 
       <label for="country">Country:</label>
-      <input type="text" id="country" name="country"><br>
+      <input type="text" id="country" name="country">
 
       <label for="bio">Bio:</label>
-      <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br>
+      <textarea id="bio" name="bio" rows="4" cols="50"></textarea>
 
-      <button type="submit">Add Profile</button>
+      <button type="submit" id="form-submit-button">Add Profile</button>
     </form>
   </section>
+
+  <script>
+    function editProfile(id) {
+      const profile = {{@root.profiles}}.find(p => p.id === id);
+      if (profile) {
+        document.getElementById('form-title').innerText = 'Update Profile';
+        document.getElementById('profile-id').value = profile.id;
+        document.getElementById('username').value = profile.username;
+        document.getElementById('firstName').value = profile.firstName;
+        document.getElementById('lastName').value = profile.lastName;
+        document.getElementById('pronouns').value = profile.pronouns;
+        document.getElementById('team').value = profile.team;
+        document.getElementById('country').value = profile.country;
+        document.getElementById('bio').value = profile.bio;
+        document.getElementById('form-submit-button').innerText = 'Update Profile';
+        document.getElementById('profile-form').action = '/editProfile';
+      }
+    }
+  </script>
 </body>
 </html>
