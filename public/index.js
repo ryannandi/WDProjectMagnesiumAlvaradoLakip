@@ -9,7 +9,7 @@ let rb = 0;
 let redBull = 0;
 let alpine = 0;*/
 
-    var alpine = 0;
+    /*var alpine = 0;
     var astonMartin = 0;
     var ferrari = 0;
     var haas = 0;
@@ -100,4 +100,4 @@ let alpine = 0;*/
         }
         // output the score on the browser
         
-      }
+      }*/

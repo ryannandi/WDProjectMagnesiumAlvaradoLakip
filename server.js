@@ -1,50 +1,101 @@
 // Import required modules
 const express = require('express');
-
-const bodyParser = require('body-parser');
 const path = require('path');
+const fs = require('fs');
 
-// Initialize the Express application
+// Create Express application
 const app = express();
 
-// Set up Handlebars as the templating engine
-const { create } = require('express-handlebars'); // Updated import for express-handlebars
-const hbs = create({ extname: '.hbs' }); // Create an instance of express-handlebars
-app.engine('hbs', hbs.engine); // Use the engine instance
+// Middleware setup
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public')); // Serve static files from 'public' directory
+
+// Set up handlebars as the template engine
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'views')); // Ensure views directory is set
+app.set('views', path.join(__dirname, 'views')); // Updated path for views
 
-// Middleware to parse form data
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// Initialize profiles.json if it doesn't exist
+const profilesFilePath = path.join(__dirname, 'data', 'profiles.json');
+if (!fs.existsSync(path.join(__dirname, 'data'))) {
+  console.log('Creating data directory...');
+  fs.mkdirSync(path.join(__dirname, 'data'));
+}
+if (!fs.existsSync(profilesFilePath)) {
+  console.log('Creating profiles.json file...');
+  fs.writeFileSync(profilesFilePath, '[]'); // Initialize with an empty array
+}
 
-app.use(express.static(path.join(__dirname, 'public'))); // Serve static files (CSS, JS, etc.)
-// Route to render the profile page as the default page
-app.get('/', (req, res) => {
-    console.log('Rendering profiles.hbs');
-    res.render('profiles', { user: null }); // Pass user data if available
+// Routes for CRUD operations
+
+// Read: Display all profiles
+app.get('/home', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+// Route to render profiles.hbs
+app.get('/profiles', (req, res) => {
+  const profiles = JSON.parse(fs.readFileSync(profilesFilePath, 'utf8')); // Read profiles from profiles.json
+  res.render('profiles', { profiles }); // Render profiles.hbs with the profiles data
+});
+// Create: Add a new profile
+app.post('/addProfile', (req, res) => {
+  const { username, firstName, lastName, pronouns, team, country, bio } = req.body;
+
+  const profiles = JSON.parse(fs.readFileSync(profilesFilePath, 'utf8'));
+  const newProfile = {
+    id: Date.now(), // Unique ID for the profile
+    username,
+    firstName,
+    lastName,
+    pronouns,
+    team,
+    country,
+    bio,
+  };
+
+  profiles.push(newProfile);
+  fs.writeFileSync(profilesFilePath, JSON.stringify(profiles, null, 2));
+  res.redirect('/');
 });
 
-// Route to handle form submission
-app.post('/addProfile', (req, res) => {
-    // Here you would handle the profile data submission
-    const userProfile = {
-        username: req.body.username,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        pronouns: req.body.pronouns,
-        team: req.body.team,
-        country: req.body.country,
-        bio: req.body.bio,
-        profilePicture: req.file ? req.file.path : null // Handle file upload
-    };
+// Update: Edit an existing profile
+// Update: Edit an existing profile
+app.post('/editProfile', (req, res) => {
+  const { id, username, firstName, lastName, pronouns, team, country, bio } = req.body;
 
-    // Render the profile page with the submitted user data
-    res.render('profiles', { user: userProfile });
+  const profiles = JSON.parse(fs.readFileSync(profilesFilePath, 'utf8'));
+  const profileIndex = profiles.findIndex((profile) => profile.id === parseInt(id));
+
+  if (profileIndex !== -1) {
+    profiles[profileIndex] = {
+      id: parseInt(id),
+      username,
+      firstName,
+      lastName,
+      pronouns,
+      team,
+      country,
+      bio,
+    };
+    fs.writeFileSync(profilesFilePath, JSON.stringify(profiles, null, 2));
+  }
+
+  res.redirect('/profiles');
+});
+
+// Delete: Remove a profile
+app.get('/deleteProfile', (req, res) => {
+  const { id } = req.query;
+
+  const profiles = JSON.parse(fs.readFileSync(profilesFilePath, 'utf8'));
+  const updatedProfiles = profiles.filter((profile) => profile.id !== parseInt(id));
+
+  fs.writeFileSync(profilesFilePath, JSON.stringify(updatedProfiles, null, 2));
+  res.redirect('/');
 });
 
 // Start the server
-const PORT = process.env.PORT || 3006;
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+const PORT = 3000;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
 });
