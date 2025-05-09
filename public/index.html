@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,143 +93,158 @@
             text-align: center;
             padding: 20px;
             position: relative;
+            width: 100%;
+            box-sizing: border-box;
         }
         .creators {
-    display: flex; /* Use flexbox to align creators side by side */
-    justify-content: center; /* Center the creators */
-    margin-top: 10px;
-}
-
-.creator {
-    margin: 0 20px; /* Space between creators */
-    text-align: center; /* Center text under icons */
-}
-
-.social-icons {
-    display: flex; /* Use flexbox for social icons */
-    justify-content: center; /* Center the columns */
-    gap: 20px; /* Space between the two columns */
-}
-
-.social-column {
-    display: flex; /* Use flexbox for vertical stacking */
-    flex-direction: column; /* Stack icons vertically */
-    align-items: center; /* Center icons horizontally */
-    gap: 10px; /* Space between icons */
-}
-        img {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 20px auto;
+            max-width: 1000px;
         }
 
+        .creator {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            background: #3a3a3a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            text-align: center;
+        }
 
-.fb, .ig, .mail {
-    display: inline-block; /* Ensure they are inline-block elements */
-    width: 1416px; height: 708px;
-    background-size: 25%; /* Ensure the background image scales correctly */
-    background-repeat: no-repeat;
+        .creator p {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
 
-}
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
 
-.fb, .ig, .mail {
-    display: inline-block; /* Ensure they are inline-block elements */
-    width: 32px; /* Set to the desired width of the icon */
-    height: 32px; /* Set to the desired height of the icon */
-    background-size: contain; /* Ensure the background image scales correctly */
-    background-repeat: no-repeat; /* Prevent the background from repeating */
-}
+        .social-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
 
-/* Facebook Icon */
-.fb {
-    background: url('./sprites/css_sprites1.png') no-repeat; /* Ensure the URL is correct */
-    background-position: 0 0; /* Normal state position */
-}
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transition: transform 0.3s;
+        }
 
-.fb:hover {
-    background-position: 0 -708px; /* Adjust for hover state */
-}
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
 
-/* Instagram Icon */
-.ig {
-    background: url('./sprites/css_sprites.png') no-repeat; /* Ensure the URL is correct */
-    background-position: 0 0; /* Normal state position */
-}
+        .ig {
+            background-image: url('https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/instagram-icon.png?v=1734970000000');
+        }
 
-.ig:hover {
-    background-position: 0 -708px; /* Adjust for hover state */
-}
+        .fb {
+            background-image: url('https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/facebook-icon.png?v=1734970000000');
+        }
 
-/* Email Icon */
-.mail {
-    background: url('./sprites/css_sprites2.png') no-repeat; /* Ensure the URL is correct */
-    background-position: 0 0; /* Normal state position */
-}
+        .mail {
+            background-image: url('https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/email-icon.png?v=1734970000000');
+        }
 
-.mail:hover {
-    background-position: 0 -708px; /* Adjust for hover state */
-}
+        img {
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+        }
 
-/* For the second column, ensure the classes are distinct */
-.ig2 {
-    background: url('./sprites/css_sprites.png') no-repeat; /* Ensure the URL is correct */
-    background-position: 0 0; /* Normal state position */
-}
+        /* Light Mode */
+        body.light-mode {
+            background-color: #f5f5f5;
+            color: #111;
+        }
 
-.ig2:hover {
-    background-position: 0 -708px; /* Adjust for hover state */
-}
+        body.light-mode h1,
+        body.light-mode h2,
+        body.light-mode h3,
+        body.light-mode h4,
+        body.light-mode h5,
+        body.light-mode h6 {
+            color: #222;
+        }
 
-.fb2 {
-    background: url('./sprites/css_sprites1.png') no-repeat; /* Ensure the URL is correct */
-    background-position: 0 0; /* Normal state position */
-}
+        body.light-mode .about-section {
+            background-color: #fff;
+            color: #111;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-.fb2:hover {
-    background-position: 0 -708px; /* Adjust for hover state */
-}
+        body.light-mode .navbar {
+            background: linear-gradient(to right, #ff9999, #f5f5f5);
+        }
 
-.mail2 {
-    background: url('./sprites/css_sprites2.png') no-repeat; /* Ensure the URL is correct */
-    background-position: 0 0; /* Normal state position */
-}
+        body.light-mode .navbar a {
+            color: #111;
+        }
 
-.mail2:hover {
-    background-position: 0 -708px; /* Adjust for hover state */
-}
-    
-    /* Light Mode */
-    body.light-mode {
-        background-color: red;
-        color: black;
-        background-image: none;
-    }
-    p.light-mode {
-        color: black;
-    }
-    body.light-mode h1, body.light-mode h3 {
-        color: blue;
-    }
-    body.light-mode div {
-        background: lightgrey;
-        color: black;
-        border: 1px solid black;
-        box-shadow: 5px 5px 2px grey;
-    }
-    body.light-mode div:nth-child(odd) {
-        background: lightgrey;
-    }
-    body.light-mode div:nth-child(even) {
-        background: white;
-    }
-    .navbar img {
-        width: 32px;
-        height: 32px;
-        object-fit: cover;
-        border-radius: 50%;      /* Makes it circular */
-        border: 2px solid white; /* Optional for visibility */
-        vertical-align: middle;
-    }
+        body.light-mode .navbar a:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            color: #d40000;
+        }
+
+        body.light-mode header::after {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        body.light-mode .video-section,
+        body.light-mode iframe {
+            background-color: #fff;
+            color: #111;
+        }
+
+        body.light-mode footer {
+            background-color: #ddd;
+            color: #111;
+        }
+
+        body.light-mode div {
+            background-color: #fff;
+            color: #111;
+            border-color: #ccc;
+        }
+
+        body.light-mode button {
+            background-color: #e0e0e0;
+            color: #111;
+            border: 1px solid #aaa;
+        }
+
+        body.light-mode .creator p {
+            color: #111;
+        }
+        
+        body.light-mode .creator {
+            background: #e0e0e0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        body.light-mode .about-section {
+            background: #f0f0f0;
+            color: #000;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+        }
+
+        body.light-mode .about-section h2,
+        body.light-mode .about-section p {
+            color: #000;
+        }
     </style>
 </head>
 <body>
@@ -255,104 +269,37 @@
             Get to know the current teams and drivers, their strengths and weaknesses, and their quest for the championship title. Learn about the different track types, from the high-speed Monza to the challenging Monaco street circuit, and how each presents unique challenges for the drivers.
             Delve into the technical aspects of F1 cars, from their powerful engines to their aerodynamic designs. Understand the strategies involved in racing, such as pit stops and tire management.
             With so much to explore, you'll become an F1 expert in no time. So, what are you waiting for? Start your engines and explore the exciting world of Formula 1!</p>
-        </b>
         <h3>Meet the Creators</h3>
         <p>Miggy Alvarado and Andi Lakip are grade 9 PSHS MC students who have a deep passion for Formula 1. Miggy has been watching Formula 1 since 2017 and he introduced Andi to the sport back in 2022, and ever since they have always wanted to create a website to teach newbies a bit about this thrilling and exciting motorsport.</p>
     </div>
 </div>
 
-        <footer>
+<footer>
     <h4>Creators</h4>
     <div class="creators">
-        <div class="creator">
-            <p><b>Miguel Luis Alvarado</b></p>
-            <p>Miggy is a 15-year-old student with a fondness for sports, including Formula 1 and basketball, where he avidly enjoys supporting his teams: McLaren and the Boston Celtics. In his free time, he dances, plays the guitar, works out, and cooks like a chef he's a five star michelin.</p>
-        </div>
-        <div class="creator">
-            <p><b>Ryann Andrea Lakip</b></p>
-            <p>Andi is a 16-year-old student who finds joy in creative hobbies such as writing, reading, and playing various musical instruments. Her knowledge of Formula 1 comes mostly from Miggy, who taught her the ropes of the sport. She loves tennis too omg what a win. Join Lagablab.</p>
-        </div>
-    </div>
-    <div class="social-icons">
-        <div class="social-column">
-            <a href="https://www.instagram.com/miggy_orbitor/" target="_blank">
-                <div class="ig"></div> 
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=100086240574099" target="_blank">
-                <div class="fb"></div> 
-            </a>
-            <a href="mailto:b2028msalvarado@pshs.edu.ph">
-                <div class="mail"></div>
-            </a>
-        </div>
-        <div class="social-column">
-            <a href="https://www.instagram.com/andilakip/" target="_blank">
-                <div class="ig2"></div>
-            </a>
-            <a href="https://www.facebook.com/ryann.andrea.lakip/" target="_blank">
-                <div class="fb2"></div>
-            </a>
-            <a href="mailto:b2028rarlakip@pshs.edu.ph">
-                <div class="mail2"></div>
-            </a>
+    <div class="creator">
+        <p><b>Miguel Luis Alvarado</b></p>
+        <p>Miggy is a 15-year-old student with a fondness for sports, including Formula 1 and basketball, where he avidly enjoys supporting his teams: McLaren and the Boston Celtics. In his free time, he dances, plays the guitar, works out, and cooks like a chef he's a five star michelin.</p>
+        <div class="social-icons">
+            <img src="1.png" alt="Instagram" onclick="window.open('https://www.instagram.com/miggy_orbitor/', '_blank')" style="cursor:pointer;">
+            <img src="2.png" alt="Facebook" onclick="window.open('https://www.facebook.com/profile.php?id=100086240574099', '_blank')" style="cursor:pointer;">
+            <img src="3.png" alt="Email" onclick="window.location.href='mailto:b2028msalvarado@pshs.edu.ph'" style="cursor:pointer;">
         </div>
     </div>
+    <div class="creator">
+        <p><b>Ryann Andrea Lakip</b></p>
+        <p>Andi is a 16-year-old student who finds joy in creative hobbies such as writing, reading, and playing various musical instruments. Her knowledge of Formula 1 comes mostly from Miggy, who taught her the ropes of the sport. She loves tennis too omg what a win. Join Lagablab.</p>
+        <div class="social-icons">
+            <img src="1.png" alt="Instagram" onclick="window.open('https://www.instagram.com/andilakip/', '_blank')" style="cursor:pointer;">
+            <img src="2.png" alt="Facebook" onclick="window.open('https://www.facebook.com/ryann.andrea.lakip/', '_blank')" style="cursor:pointer;">
+            <img src="3.png" alt="Email" onclick="window.location.href='mailto:b2028rarlakip@pshs.edu.ph'" style="cursor:pointer;">
+        </div>
+    </div>
+</div>
+
     <p>&copy; 2025 Lights Out. All rights reserved.</p>
 </footer>
-<!--        
-        <h4>Creators</h4>
-        <div class="creators">
-            <div class="creator">
-                <p>Miggy Alvarado</p>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/miggy_orbitor/" target="_blank">
-                        <i class="fab fa-instagram"></i> Instagram
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=100086240574099" target="_blank">
-                        <i class="fab fa-facebook"></i> Facebook
-                    </a>
-                    <a href="mailto:miggy@example.com">
-                        <i class="fas fa-envelope"></i> Email
-                    </a>
-                </div>
-            </div>
-            <div class="creator">
-                <p>Andi Lakip</p>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/andilakip/" target="_blank">
-                        <i class="fab fa-instagram"></i> Instagram
-                    </a>
-                    <a href="https://www.facebook.com/ryann.andrea.lakip/" target="_blank">
-                        <i class="fab fa-facebook"></i> Facebook
-                    </a>
-                    <a href="mailto:andi@example.com">
-                        <i class="fas fa-envelope"></i> Email
-                    </a>
-                </div>
-            </div>
-        </div>
-        <p>&copy; 2025 Lights Out. All rights reserved.</p>
-    </footer>-->
-    
-<!--<div class="creators">
-        <div class="creator">
-                        <p>Miggy Alvarado</p>
-                        <div class="social-icons">
-                            <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/0f4775b4-4b69-4fee-9b8f-e6c85934a6ca.image.png?v=1734598466349" width="100px" height="50px"" target="https://www.instagram.com/miggy_orbitor/">Instagram</a>
-                            <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/7ab261c112429812160c05ad9f487c2f%20(1).jpg?v=1734599165966" width="50px" height="50px" target="https://www.facebook.com/profile.php?id=100086240574099">Facebook</a>
-                        </div>
-                    </div>
-                    <div class="creator">
-                        <p>Andi Lakip</p>
-                        <div class="social-icons">
-                            <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/0f4775b4-4b69-4fee-9b8f-e6c85934a6ca.image.png?v=1734598466349" width="100px" height="50px" target="https://www.instagram.com/andilakip/">Instagram</a>
-                            <a href="https://cdn.glitch.global/2fb58b39-42a7-4d74-983f-b77841a8cb18/7ab261c112429812160c05ad9f487c2f%20(1).jpg?v=1734599165966" width="50px" height="50px" target="https://www.facebook.com/ryann.andrea.lakip/">Facebook</a>
-                        </div>
-                    </div>
-                </div>
-                <p>&copy; 2025 Lights Out. All rights reserved.</p>
-            </footer>
--->
+
 <script>
     function toggleMode() {
       document.body.classList.toggle("light-mode");
@@ -360,4 +307,3 @@
 </script>
 </body>
 </html>
-                

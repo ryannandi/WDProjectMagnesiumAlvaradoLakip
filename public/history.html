@@ -48,8 +48,9 @@
     .decade-section {
         margin-bottom: 40px; /* Add spacing between sections */
         padding: 20px;
-        background-color: #f8f8f8; /* Light background for each decade */
+        background-color: #353434; /* Light background for each decade */
         border-radius: 8px;
+        color:whitesmoke
     }
 
     .decade-section img {
@@ -59,7 +60,7 @@
         margin: 20px 0;
     }
     p {
-      color: black;
+      color: rgb(255, 255, 255);
       font-family: monospace;
       font-weight: bold;
       text-align: justify;
@@ -67,35 +68,46 @@
     #ref {
       color: white;
     }
+
     /* Light Mode */
     body.light-mode {
-        background-color: white;
-        color: black;
-        background-image: none;
+      background-color: white;
+      color: black;
+      background-image: none;
     }
-    body.light-mode h1, body.light-mode h2, body.light-mode h3 {
-        color: crimson;
+
+    body.light-mode h1,
+    body.light-mode h2,
+    body.light-mode h3 {
+      color: crimson;
     }
+
     body.light-mode div {
-        background: lightgrey;
-        color: black;
-        border: 1px solid black;
-        box-shadow: 5px 5px 2px grey;
+      border: 1px solid black;
+      box-shadow: 5px 5px 2px grey;
     }
+
     body.light-mode div:nth-child(odd) {
-        background: lightgrey;
+      background: lightgrey;
     }
+
     body.light-mode div:nth-child(even) {
-        background: white;
+      background: white;
     }
-    .navbar img {
-        width: 32px;
-        height: 32px;
-        object-fit: cover;
-        border-radius: 50%;      /* Makes it circular */
-        border: 2px solid white; /* Optional for visibility */
-        vertical-align: middle;
+
+    body.light-mode p {
+      color: black;
     }
+
+    body.light-mode #ref {
+      color: black;
+    }
+
+    body.light-mode .decade-section {
+      background-color: #f2f2f2;
+      color: black;
+    }
+    
   </style>
   <button onclick="toggleMode()">Toggle Dark/Light Mode</button>
   <h1>HISTORY <!--heading--></h1>

@@ -205,37 +205,25 @@
             color: yellow; /* Change text color on hover */
         }
         /* Light Mode */
-    body.light-mode {
-        background-color: white;
-        color: black;
-        background-image: none;
-    }
-    body.light-mode h1, body.light-mode h3 {
-        color: crimson;
-    }
-    body.light-mode div {
-        background: lightgrey;
-        color: black;
-        border: 1px solid black;
-        box-shadow: 5px 5px 2px grey;
-    }
-    body.light-mode div:nth-child(odd) {
-        background: lightgrey;
-    }
-    body.light-mode div:nth-child(even) {
-        background: white;
-    }
-    h1 {
-        color: white;
-    }
-    .navbar img {
-        width: 32px;
-        height: 32px;
-        object-fit: cover;
-        border-radius: 50%;      /* Makes it circular */
-        border: 2px solid white; /* Optional for visibility */
-        vertical-align: middle;
-    }
+            body.light-mode {
+            background-color: white;
+            color: black;
+        }
+
+        body.light-mode h1 {
+            color: crimson;
+        }
+
+        body.light-mode .team {
+            background: lightgrey !important;
+            color: black !important;
+            border: 1px solid black;
+            box-shadow: 5px 5px 2px grey;
+        }
+
+        body.light-mode .team:nth-child(even) {
+            background: white !important;
+        }
 
       </style>
     <button onclick="toggleMode()">Toggle Dark/Light Mode</button>
@@ -296,7 +284,7 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNEEI3BdHpSHldjwu3IjPCddPVASyn1XiE9w&s" alt="Team 8">
                 <h2>Alpine</h2>
                 <p>Pierre Gasly [10]</p>
-                <p>Jack Doohan [31]
+                <p>Jack Doohan [31]</p>>
             </div>
              
             <div class="williams">
